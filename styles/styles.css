@@ -1,0 +1,110 @@
+
+:root {
+    --primary-100: hsl(207, 67%, 54%);
+    --primary-200: hsl(207, 73%, 25%);
+    --primary-300: hsl(209, 66%, 7%);
+    --neutral-100: hsl(0, 0%, 100%);
+    --neutral-200: hsl(0, 0%, 96%);
+    --neutral-300: hsl(0, 0%, 40%);
+}
+
+
+@font-face {
+    font-family: 'Poppins', sans-serif;
+    src: url(../assets/fonts/Poppins-Regular.ttf) format(ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Poppins', sans-serif;
+    src: url(../assets/fonts/Poppins-Bold.ttf) format(ttf);
+    font-weight: 700;
+}
+
+/*------------------*/
+/*General reset     */
+/*------------------*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.125em;
+    line-height: 1.6;
+    background-color: var(--primary-300);
+    color: var(--neutral-200);
+}
+
+input,
+button {
+    font: inherit;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.1;
+}
+
+/*------------------*/
+/*Main header       */
+/*------------------*/
+
+.main-header {
+    display: flex;
+    align-items: center;
+    padding-block: 3rem;
+}
+
+.main-heading {
+    color: var(--primary-100);
+    font-size: 3rem;
+}
+
+.input-group {
+    --input-border-radius: 2rem;
+    margin-left: auto;
+    background-color: var(--neutral-200);
+    border-radius: var(--input-border-radius);
+}
+
+.input-group:focus-within {
+    outline: 4px solid var(--primary-100);
+}
+
+.pokemon-search {
+    background-color: var(--neutral-200);
+    color: var(--neutral-300);
+    font-size: 1rem;
+    padding: .35rem 1rem;
+    border-left: none;
+    border-radius: var(--input-border-radius);
+    border-bottom-left-radius: 0rem;
+    border-top-left-radius: 0rem;
+    border: none;
+}
+
+.pokemon-search-label {
+    padding-inline: .25rem;
+    color: var(--neutral-300);
+    margin-left: .25rem;
+}
+
+.icon {
+    color: var(--neutral-300);
+}
+
+
+/*--------------------*/
+/*Utility classes     */
+/*--------------------*/
+.container {
+    width: min(100% - 4rem, 60rem);
+    margin-inline: auto;
+}
