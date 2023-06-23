@@ -2,7 +2,8 @@
 :root {
     --primary-100: hsl(207, 67%, 54%);
     --primary-200: hsl(207, 73%, 25%);
-    --primary-300: hsl(209, 66%, 7%);
+    --primary-300: hsl(207, 70%, 9%);
+    --primary-400: hsl(209, 66%, 7%);
     --neutral-100: hsl(0, 0%, 100%);
     --neutral-200: hsl(0, 0%, 96%);
     --neutral-300: hsl(0, 0%, 40%);
@@ -37,7 +38,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.125em;
     line-height: 1.6;
-    background-color: var(--primary-300);
+    background-color: var(--primary-400);
     color: var(--neutral-200);
 }
 
@@ -62,9 +63,10 @@ h3 {
     padding-block: 3rem;
 }
 
-.main-heading {
+.logo {
     color: var(--primary-100);
     font-size: 3rem;
+    font-weight: 700;
 }
 
 .input-group {
@@ -93,6 +95,7 @@ h3 {
 .pokemon-search-label {
     padding-inline: .25rem;
     color: var(--neutral-300);
+    height: 100%;
     margin-left: .25rem;
 }
 
@@ -104,7 +107,55 @@ h3 {
 /*--------------------*/
 /*Utility classes     */
 /*--------------------*/
+
 .container {
     width: min(100% - 4rem, 60rem);
     margin-inline: auto;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, .6fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+    place-content: center;
+}
+
+.card {
+    background-color: var(--primary-300);
+    border-radius: 2rem;
+}
+
+.card-header {
+    margin-bottom: 2rem;
+}
+
+.card-body {
+    --card-body-spacing: 2rem;
+    padding-inline: var(--card-body-spacing);
+}
+
+.card-body h2 {
+    margin-bottom: .5rem;
+}
+
+.card-body p {
+    margin-bottom: var(--card-body-spacing);
+}
+
+.card-body button {
+    color: var(--neutral-100);
+    background-color: var(--primary-100);
+    font-weight: 700;
+    padding: .25rem .75rem;
+    margin-bottom: var(--card-body-spacing);
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    width: max-content;
+    transition: 250ms background-color ease-in-out;
+}
+
+.card-body button:hover {
+    background-color: var(--primary-200);
 }
