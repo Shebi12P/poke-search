@@ -1,5 +1,5 @@
 export const fetchPokemon = async (pokemonName) => {
-    const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+    const BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
     let fetchUrl = `${BASE_URL}${pokemonName}`;
     
     if(pokemonName === undefined) {
