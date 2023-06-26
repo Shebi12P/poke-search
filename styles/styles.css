@@ -169,8 +169,13 @@ img {
 }
 
 .card-body h2 {
-    margin-bottom: .5rem;
+    margin-bottom: .75rem;
+}
+
+.card-body .type-badges {
     margin-bottom: var(--card-body-spacing);
+    display: flex;
+    gap: .5rem;
 }
 
 .card-body button {
@@ -193,8 +198,8 @@ img {
 /*Type badges*/
 
 .type-badge {
-    font-size: 1rem;
-    padding: .25rem .5rem;
+    font-size: .875rem;
+    padding: .25rem .75rem;
     border-radius: 2rem;
     font-weight: 700;
 }
