@@ -141,10 +141,11 @@ img {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, .6fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, .55fr));
     column-gap: 2rem;
     row-gap: 2rem;
     place-content: center;
+    margin-bottom: 4rem;
 }
 
 .card {
@@ -153,7 +154,7 @@ img {
 }
 
 .card-header {
-    --max-img-size: 16rem;
+    --max-img-size: 13rem;
     margin-bottom: 2rem;
     max-width: var(--max-img-size);
     margin-inline: auto;

@@ -1,11 +1,5 @@
 export const cachePokemon = (pokemonData) => {
-    const hasMoreThanOnePokemon = Object.keys(pokemonData).includes("results");
-    let key = pokemonData.name;
-    
-    if(hasMoreThanOnePokemon) {
-        let key = "homePagePokemon";
-    }
-
+    let pokemonId = pokemonData.id;
     const stringifedPokemonData = JSON.stringify(pokemonData);
-    localStorage.setItem(key, stringifedPokemonData);
+    localStorage.setItem(pokemonId, stringifedPokemonData);
 }
