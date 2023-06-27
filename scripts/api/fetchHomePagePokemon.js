@@ -23,6 +23,5 @@ export const fetchHomePagePokemon = async () => {
         fetchedPokemons.push(fetchedPokemon);
     }
 
-    console.log(fetchedPokemons)
     return fetchedPokemons;
 }
