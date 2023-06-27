@@ -1,16 +1,15 @@
 import { createCardHeader } from "./createCardHeader.js";
 import { createCardBody } from "./createCardBody.js";
+import { getPokemonTypes } from "../utils/getPokemonTypes.js";
 
 export const createCard = (fetchedPokemonData) => {
     const imageUrl = fetchedPokemonData.sprites.other["official-artwork"].front_default;
-    const pokemonTypes = [
-        fetchedPokemonData.types["0"].type.name,
-        fetchedPokemonData.types["1"].type.name
-    ]
+    const pokemonTypes = getPokemonTypes(fetchedPokemonData);
+
     const { name: pokemonName} = fetchedPokemonData;
     
     const card = document.createElement("div");
-    card.setAttribute("class", "card");
+    card.classList.add("card");
 
     const cardHeader = createCardHeader(imageUrl, pokemonName);
     const cardBody = createCardBody(pokemonName, pokemonTypes);

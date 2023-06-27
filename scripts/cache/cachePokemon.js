@@ -1,9 +1,9 @@
 export const cachePokemon = (pokemonData) => {
     const hasMoreThanOnePokemon = Object.keys(pokemonData).includes("results");
-    let key = "homePagePokemon";
+    let key = pokemonData.name;
     
-    if(!hasMoreThanOnePokemon) {
-        key = pokemonData.name;
+    if(hasMoreThanOnePokemon) {
+        let key = "homePagePokemon";
     }
 
     const stringifedPokemonData = JSON.stringify(pokemonData);
