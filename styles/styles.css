@@ -276,3 +276,14 @@ img {
 .type-badge[data-type="fairy"] {
     background-color: var(--fairy);
 }
+
+@media (max-width: 40em) {
+    .main-header {
+        flex-direction: column;
+        gap: 2rem
+    }
+
+    .input-group {
+        margin-inline: auto;
+    }
+}
