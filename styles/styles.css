@@ -129,6 +129,23 @@ img {
     color: var(--neutral-300);
 }
 
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, .55fr));
+    column-gap: 2rem;
+    row-gap: 2rem;
+    place-content: center;
+    margin-bottom: 4rem;
+}
+
+.see-more-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.see-more-button {
+    margin-bottom: 2rem;
+    width: max-content;
+}
 
 /*--------------------*/
 /*Utility classes     */
@@ -139,15 +156,7 @@ img {
     margin-inline: auto;
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, .55fr));
-    column-gap: 2rem;
-    row-gap: 2rem;
-    place-content: center;
-    margin-bottom: 4rem;
-}
-
+/*Card */
 .card {
     background-color: var(--primary-300);
     border-radius: 2rem;
@@ -180,19 +189,24 @@ img {
 }
 
 .card-body button {
+    margin-bottom: var(--card-body-spacing);
+    width: max-content;
+}
+
+/*Button*/
+
+.button {
     color: var(--neutral-100);
     background-color: var(--primary-100);
     font-weight: 700;
     padding: .25rem .75rem;
-    margin-bottom: var(--card-body-spacing);
     border: none;
     cursor: pointer;
     border-radius: 1rem;
-    width: max-content;
     transition: 250ms background-color ease-in-out;
 }
 
-.card-body button:hover {
+.button:hover {
     background-color: var(--primary-200);
 }
 

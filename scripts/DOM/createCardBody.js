@@ -6,6 +6,7 @@ export const createCardBody = (pokemonName, pokemonTypes) => {
     header.textContent = pokemonName;
 
     const button = document.createElement("button");
+    button.classList.add("button");
     button.textContent = "See more...";
 
     const typeBadges = document.createElement("div");

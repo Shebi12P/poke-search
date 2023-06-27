@@ -10,6 +10,7 @@ export const createCard = (fetchedPokemonData) => {
     
     const card = document.createElement("div");
     card.classList.add("card");
+    card.setAttribute("data-pokemon-id", fetchedPokemonData);
 
     const cardHeader = createCardHeader(imageUrl, pokemonName);
     const cardBody = createCardBody(pokemonName, pokemonTypes);

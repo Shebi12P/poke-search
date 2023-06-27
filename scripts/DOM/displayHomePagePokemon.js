@@ -1,13 +1,13 @@
-import { createCard } from "./createCard.js";
+import { createCard } from "../DOM/createCard.js";
 import { fetchHomePagePokemon } from "../api/fetchHomePagePokemon.js";
 
 const cardGrid = document.querySelector(".card-grid");
 
 export const displayHomePagePokemon = async () => {
-    const fetchedPokemons = await fetchHomePagePokemon();
+    const pokemons = await fetchHomePagePokemon();
     
-    fetchedPokemons.forEach((fetchedPokemon) => {
-        const card = createCard(fetchedPokemon);
+    pokemons.forEach((pokemon) => {
+        const card = createCard(pokemon);
         cardGrid.appendChild(card);
     })
 }

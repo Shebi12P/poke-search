@@ -4,11 +4,12 @@ import { isPokemonCashed } from "../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../cache/getPokemonDataFromCache.js";
 
 export const fetchHomePagePokemon = async () => {
-    const POKEMON_LIMIT = 9;
+    let pokemonLimit = 9;
+    
     const fetchedPokemons = [];
     let fetchedPokemon = {};
 
-    for(let i = 0; i < POKEMON_LIMIT; i++) {
+    for(let i = 0; i < pokemonLimit; i++) {
         let pokemonId = i+1;
 
         if(isPokemonCashed(pokemonId)) {
@@ -22,5 +23,6 @@ export const fetchHomePagePokemon = async () => {
         fetchedPokemons.push(fetchedPokemon);
     }
 
+    console.log(fetchedPokemons)
     return fetchedPokemons;
 }
