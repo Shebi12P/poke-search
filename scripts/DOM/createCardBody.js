@@ -12,10 +12,6 @@ export const createCardBody = (pokemonName, pokemonTypes) => {
     const typeBadges = document.createElement("div");
     typeBadges.classList.add("type-badges");
     pokemonTypes.forEach((pokemonType) => {
-        if(pokemonType === undefined) {
-            return;
-        }
-
         const typeBadge = createTypeBadge(pokemonType);
         typeBadges.appendChild(typeBadge);
     })
@@ -23,7 +19,7 @@ export const createCardBody = (pokemonName, pokemonTypes) => {
     const cardBody = document.createElement("div");
     cardBody.classList.add("card-body");
     cardBody.appendChild(header);
-    cardBody.append(typeBadges);
+    cardBody.appendChild(typeBadges);
     cardBody.appendChild(button);
 
     return cardBody;

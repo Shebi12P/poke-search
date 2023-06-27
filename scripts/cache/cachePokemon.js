@@ -1,15 +1,19 @@
+import { getPokemonTypes } from "../utils/getPokemonTypes.js";
+import { getPokemonStats } from "../utils/getPokemonStats.js";
+import { getPokemonSprites } from "../utils/getPokemonSprites.js";
+
 export const cachePokemon = (pokemonData) => {
-    const { name, id, stats, types, weight, height, sprites } = pokemonData;
+    const { name, id, weight, height } = pokemonData;
 
     const dataToCache = {
         id: id,
         name: name,
-        types: types,
-        stats: stats,
+        types: getPokemonTypes(pokemonData),
+        stats: getPokemonStats(pokemonData),
         weight: weight,
         height: height,
-        sprites: sprites
-    }
+        sprites: getPokemonSprites(pokemonData)
+    };
 
     const stringifedPokemonData = JSON.stringify(dataToCache);
     localStorage.setItem(id, stringifedPokemonData);
