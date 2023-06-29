@@ -1,4 +1,4 @@
-import { createTypeBadge } from "./createTypeBadge.js";
+import { createTypeBadge } from "../createTypeBadge.js";
 
 export const createCardBody = (pokemonName, pokemonTypes) => {
     const header = document.createElement("h2");

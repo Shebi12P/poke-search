@@ -1,4 +1,4 @@
-import { createCard } from "../DOM/createCard.js";
+import { createCard } from "./card/createCard.js";
 import { cachePokemon } from "../cache/cachePokemon.js";
 import { fetchPokemon } from "../api/fetchPokemon.js";
 import { isPokemonCashed } from "../cache/isPokemonCached.js";
@@ -6,12 +6,12 @@ import { getPokemonDataFromCache } from "../cache/getPokemonDataFromCache.js";
 
 const cardGrid = document.querySelector(".card-grid");
 
-export const displayHomePagePokemon = async () => {
-    let pokemonLimit = 9;
+export const displayHomePagePokemon = async (lastPokemonId = 0) => {
+    let pokemonLimit = parseInt(lastPokemonId + 8);
     let pokemon = {};
 
-    for(let i = 0; i < pokemonLimit; i++) {
-        let pokemonId = i+1;
+    for(let i = lastPokemonId; i < pokemonLimit; i++) {
+        let pokemonId = parseInt(i+1);
         let pokemonFromCache = false;
 
         if(isPokemonCashed(pokemonId)) {

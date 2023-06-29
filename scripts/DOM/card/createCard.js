@@ -1,7 +1,7 @@
 import { createCardHeader } from "./createCardHeader.js";
 import { createCardBody } from "./createCardBody.js";
-import { getPokemonTypes } from "../utils/getPokemonTypes.js";
-import { getPokemonDataFromCache } from "../cache/getPokemonDataFromCache.js";
+import { getPokemonTypes } from "../../utils/getPokemonTypes.js";
+import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
 export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
     let frontImageUrl = "";
@@ -13,15 +13,11 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
         frontImageUrl = cacheData.sprites[0];
         pokemonName = cacheData.name;
         pokemonTypes = cacheData.types;
-
-        console.log("From local storage")
     }
     else {
         frontImageUrl = fetchedPokemonData.sprites.other["official-artwork"].front_default;
         pokemonName = fetchedPokemonData.name;
         pokemonTypes = getPokemonTypes(fetchedPokemonData);
-
-        console.log("From api")
     }
     
     const card = document.createElement("div");
