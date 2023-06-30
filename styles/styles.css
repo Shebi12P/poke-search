@@ -28,6 +28,14 @@
     --dragon: hsl(258, 93%, 60%);
     --steel: hsl(240, 20%, 77%);
     --fairy: hsl(354, 66%, 83%);
+
+    /*Stat colors*/
+    --hp: hsl(0, 100%, 50%);
+    --attack: hsl(25, 86%, 56%);
+    --defence: hsl(48, 93%, 58%);
+    --special-attack: hsl(222, 82%, 67%);
+    --special-defence: hsl(100, 52%, 55%);
+    --speed: hsl(342, 92%, 66%);
 }
 
 
@@ -61,6 +69,7 @@ body {
     line-height: 1.6;
     background-color: var(--primary-400);
     color: var(--neutral-200);
+    position: relative;
 }
 
 input,
@@ -131,7 +140,7 @@ img {
 
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, .55fr));
+    grid-template-columns: repeat(auto-fit, minmax(275px, .6fr));
     column-gap: 2rem;
     row-gap: 2rem;
     place-content: center;
@@ -167,6 +176,7 @@ img {
     margin-bottom: 2rem;
     max-width: var(--max-img-size);
     margin-inline: auto;
+    padding-top: 1rem;
 }
 
 .card-header img {
@@ -192,6 +202,94 @@ img {
     margin-bottom: var(--card-body-spacing);
     width: max-content;
 }
+
+/*Info card*/
+
+.info-card {
+    position: fixed;
+    top: 15%;
+    left: clamp(30vw, 45vw + 5rem, 45vw);
+    right: clamp(30vw, 45vw + 5rem, 45vw);
+    min-width: min-content;
+    max-height: min-content;
+    z-index: 10;
+    transform: translateX(-50%);
+    transition: transform 250ms ease-in-out;
+}
+
+.info-card[aria-hidden="true"] {
+    transform: scale(0);
+}
+
+.info-card[aria-hidden="false"] {
+    transform: scale(1);
+}
+
+.info-card-header {
+    display: flex;
+    flex-direction: column;
+}
+
+/*close-button*/
+
+.close-button {
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.close-button:hover svg {
+    color: var(--primary-200);
+}
+
+/*Measurements */
+
+.measurements {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: .9rem;
+}
+.height,
+.weight{
+    display: flex;
+    flex-direction: column;
+}
+
+/*Stats */
+.stats {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: .825rem;
+}
+
+.stat-slider {
+    display: block;
+    border-radius: 1rem;
+    width: 100%;
+    height: .5rem;
+    background-color: aqua;
+}
+
+/*Overlay*/
+
+.overlay {
+    background-color: black;
+    position: absolute;
+    inset: 0;
+}
+
+.overlay[aria-hidden="true"] {
+    opacity: 0;
+    z-index: -1;
+}
+
+.overlay[aria-hidden="false"] {
+    opacity: .5;
+    transform-origin: center;
+    z-index: 5;
+}
+
 
 /*Button*/
 

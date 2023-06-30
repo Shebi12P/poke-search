@@ -1,4 +1,4 @@
-import { createTypeBadge } from "../createTypeBadge.js";
+import { createTypeBadge } from "../typeBadge/createTypeBadge.js";
 
 export const createCardBody = (pokemonName, pokemonTypes) => {
     const header = document.createElement("h2");
@@ -6,7 +6,7 @@ export const createCardBody = (pokemonName, pokemonTypes) => {
     header.textContent = pokemonName;
 
     const button = document.createElement("button");
-    button.classList.add("button");
+    button.classList.add("button", "show-more-info");
     button.textContent = "See more...";
 
     const typeBadges = document.createElement("div");

@@ -1,5 +1,5 @@
-import { getLastPokemonId } from "./getLastPokemonIndex.js";
-import { displayHomePagePokemon } from "../DOM/displayHomePagePokemon.js";
+import { getLastPokemonId } from "../../utils/getLastPokemonIndex.js";
+import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 
 export const loadNewPokemon = async (seeMorePokemonElement) => {
     const isIntersecting = seeMorePokemonElement[0].isIntersecting;
