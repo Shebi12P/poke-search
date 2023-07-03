@@ -30,12 +30,12 @@
     --fairy: hsl(354, 66%, 83%);
 
     /*Stat colors*/
-    --hp: hsl(0, 100%, 50%);
-    --attack: hsl(25, 86%, 56%);
-    --defence: hsl(48, 93%, 58%);
-    --special-attack: hsl(222, 82%, 67%);
-    --special-defence: hsl(100, 52%, 55%);
-    --speed: hsl(342, 92%, 66%);
+    --hp: 0, 100%, 50%;
+    --attack: 25, 86%, 56%;
+    --defence: 48, 93%, 58%;
+    --special-attack: 222, 82%, 67%;
+    --special-defence: 100, 52%, 55%;
+    --speed: 342, 92%, 66%;
 }
 
 
@@ -70,6 +70,7 @@ body {
     background-color: var(--primary-400);
     color: var(--neutral-200);
     position: relative;
+    overflow-x: hidden;
 }
 
 input,
@@ -207,13 +208,13 @@ img {
 
 .info-card {
     position: fixed;
-    top: 15%;
-    left: clamp(30vw, 45vw + 5rem, 45vw);
-    right: clamp(30vw, 45vw + 5rem, 45vw);
-    min-width: min-content;
-    max-height: min-content;
+    top: min(5%, 1% + 1vw);
+    left: 27.5vw;
     z-index: 10;
-    transform: translateX(-50%);
+    isolation: isolate;
+    overflow-y: auto;
+    min-width: max-content;
+    max-height: 35rem;
     transition: transform 250ms ease-in-out;
 }
 
@@ -227,28 +228,42 @@ img {
 
 .info-card-header {
     display: flex;
-    flex-direction: column;
+    max-width: max-content;
+    gap: 2rem;
+    padding-top: 3rem;
+}
+
+.default-sprite,
+.shiny-sprite {
+    text-align: center;
+}
+
+.info-card-body {
+    margin-bottom: 2rem;
 }
 
 /*close-button*/
 
 .close-button {
     cursor: pointer;
-    margin-left: auto;
-    margin-right: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
 }
 
 .close-button:hover svg {
-    color: var(--primary-200);
+    color: var(--primary-100);
 }
 
 /*Measurements */
 
 .measurements {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     font-size: .9rem;
+    gap: 3rem;
+    margin-bottom: 1rem;
 }
+
 .height,
 .weight{
     display: flex;
@@ -256,6 +271,7 @@ img {
 }
 
 /*Stats */
+
 .stats {
     display: flex;
     flex-direction: column;
@@ -263,13 +279,48 @@ img {
     font-size: .825rem;
 }
 
+.stat {
+    --slider-opacity: .5;
+    --slider-color: var(--hp);
+    --slider-width: 90%;
+}
+
+[data-stat="attack"] {
+    --slider-color: var(--attack);
+}
+
+[data-stat="special-attack"] {
+    --slider-color: var(--special-attack);
+}
+
+[data-stat="defence"] {
+    --slider-color: var(--defence);
+}
+
+[data-stat="special-defence"] {
+    --slider-color: var(--special-defence);
+}
+
+[data-stat="speed"] {
+    --slider-color: var(--speed);
+}
+
 .stat-slider {
+    background-color: hsl(var(--slider-color), var(--slider-opacity));
     display: block;
     border-radius: 1rem;
     width: 100%;
     height: .5rem;
-    background-color: aqua;
 }
+
+.stat-slider::after {
+    content: "";
+    display: block;
+    width: var(--slider-width);
+    height: 100%;
+    background-color: hsl(var(--slider-color), 1);
+}
+
 
 /*Overlay*/
 
@@ -277,17 +328,20 @@ img {
     background-color: black;
     position: absolute;
     inset: 0;
+    cursor: pointer;
 }
 
 .overlay[aria-hidden="true"] {
     opacity: 0;
     z-index: -1;
+    isolation: isolate;
 }
 
 .overlay[aria-hidden="false"] {
     opacity: .5;
     transform-origin: center;
     z-index: 5;
+    isolation: isolate;
 }
 
 
@@ -397,5 +451,9 @@ img {
 
     .input-group {
         margin-inline: auto;
+    }
+
+    .info-card-header {
+        flex-direction: column;
     }
 }

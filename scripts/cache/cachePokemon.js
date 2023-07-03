@@ -6,8 +6,8 @@ export const cachePokemon = (pokemonData) => {
     const { name, id, weight, height } = pokemonData;
 
     const dataToCache = {
-        id: id,
         name: name,
+        id: id,
         types: getPokemonTypes(pokemonData),
         stats: getPokemonStats(pokemonData),
         weight: weight,
@@ -16,5 +16,5 @@ export const cachePokemon = (pokemonData) => {
     };
 
     const stringifedPokemonData = JSON.stringify(dataToCache);
-    localStorage.setItem(id, stringifedPokemonData);
+    localStorage.setItem(name, stringifedPokemonData);
 }

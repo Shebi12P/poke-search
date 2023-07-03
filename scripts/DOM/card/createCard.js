@@ -22,6 +22,7 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
     
     const card = document.createElement("div");
     card.classList.add("card");
+    card.setAttribute("data-pokemon-name", fetchedPokemonData.name);
     card.setAttribute("data-pokemon-id", fetchedPokemonData.id);
 
     const cardHeader = createCardHeader(frontImageUrl, pokemonName);
