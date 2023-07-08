@@ -9,6 +9,7 @@ const cardGrid = document.querySelector(".card-grid");
 export const displayHomePagePokemon = async (lastPokemonId = 0) => {
     let pokemonLimit = parseInt(lastPokemonId + 9);
     let pokemon = {};
+    const pokemonCards = [];
 
     for(let i = lastPokemonId; i < pokemonLimit; i++) {
         let pokemonId = parseInt(i+1);
@@ -23,7 +24,12 @@ export const displayHomePagePokemon = async (lastPokemonId = 0) => {
             cachePokemon(pokemon);
         }
 
-        const card = createCard(pokemon, pokemonFromCache);
-        cardGrid.appendChild(card);
+        const card = await createCard(pokemon, pokemonFromCache);
+        pokemonCards.push(card);
+        // cardGrid.appendChild(card);
     }
+
+    pokemonCards.forEach(pokemoncard => {
+        cardGrid.appendChild(pokemoncard);
+    })
 }

@@ -1,7 +1,6 @@
 import { populateInfoCard } from "./populateInfoCard.js";
 
 export const toggleInfoCard = (event) => {
-    // populateInfoCard
     const pokemonInfoCard = document.querySelector(".info-card");
     const overlay = document.querySelector(".overlay");
     
@@ -12,10 +11,12 @@ export const toggleInfoCard = (event) => {
     const isCloseButtonChildrenClicked = clickedObject.getAttribute("data-close-button-child");
     
     if(isButtonClicked) {
-        pokemonInfoCard.setAttribute("aria-hidden", "false");
-        overlay.setAttribute("aria-hidden", "false");
         const pokemonName = clickedObject.closest(".card").getAttribute("data-pokemon-name");
         populateInfoCard(pokemonName);
+        setTimeout(() => {
+            pokemonInfoCard.setAttribute("aria-hidden", "false");
+            overlay.setAttribute("aria-hidden", "false");
+        }, 125)
     }
     
     if(isOverlayClicked || isCloseButtonClicked || isCloseButtonChildrenClicked) {

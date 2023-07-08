@@ -3,3 +3,4 @@
 - Add showing more pokemon info after clicking button
 - Add filtering pokemon by generation (with json file with all pokemon from each generation)
 -Fix right and left position of info-card
+- Add feature showing/dissapering cards that aren't on the screen

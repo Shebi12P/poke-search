@@ -1,8 +1,7 @@
-export const populateinfoCardImages = ([...sprites]) => {
-    const [ defaultSpriteURL, shinySpriteURL ] = sprites; 
+export const populateinfoCardImages = (defaultSpriteUrl, shinySpriteUrl) => {
     const defaultSprite = document.querySelector(".default-sprite");
     const shinySprite = document.querySelector(".shiny-sprite");
 
-    defaultSprite.setAttribute("src",  defaultSpriteURL);
-    shinySprite.setAttribute("src",  shinySpriteURL);
+    defaultSprite.src = `${defaultSpriteUrl}`;
+    shinySprite.src =  `${shinySpriteUrl}`;
 }

@@ -3,13 +3,12 @@ import { createCardBody } from "./createCardBody.js";
 import { getPokemonTypes } from "../../utils/getPokemonTypes.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
-export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
+export const createCard = async (fetchedPokemonData, isPokemonFromCache) => {
     let frontImageUrl = "";
     let pokemonName = "";
     let pokemonTypes = [];
 
     if(isPokemonFromCache) {
-        const cacheData = getPokemonDataFromCache(fetchedPokemonData.id);
         frontImageUrl = cacheData.sprites[0];
         pokemonName = cacheData.name;
         pokemonTypes = cacheData.types;
