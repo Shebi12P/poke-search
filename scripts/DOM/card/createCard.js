@@ -1,9 +1,8 @@
 import { createCardHeader } from "./createCardHeader.js";
 import { createCardBody } from "./createCardBody.js";
 import { getPokemonTypes } from "../../utils/getPokemonTypes.js";
-import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
-export const createCard = async (fetchedPokemonData, isPokemonFromCache) => {
+export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
     let frontImageUrl = "";
     let pokemonName = "";
     let pokemonTypes = [];

@@ -1,6 +1,6 @@
 export const getLastPokemonId = () => {
-    const cardGrid = document.querySelector(".card-grid");
-    const lastCard = cardGrid.lastElementChild;
+    const cardList = document.querySelector(".card-list");
+    const lastCard = cardList.lastElementChild.children[0];
     const lastPokemonId = parseInt(lastCard.getAttribute("data-pokemon-id"));
     
     return lastPokemonId;

@@ -13,10 +13,9 @@ export const toggleInfoCard = (event) => {
     if(isButtonClicked) {
         const pokemonName = clickedObject.closest(".card").getAttribute("data-pokemon-name");
         populateInfoCard(pokemonName);
-        setTimeout(() => {
-            pokemonInfoCard.setAttribute("aria-hidden", "false");
-            overlay.setAttribute("aria-hidden", "false");
-        }, 125)
+
+        pokemonInfoCard.setAttribute("aria-hidden", "false");
+        overlay.setAttribute("aria-hidden", "false");
     }
     
     if(isOverlayClicked || isCloseButtonClicked || isCloseButtonChildrenClicked) {

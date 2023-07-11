@@ -5,10 +5,7 @@ export const loadNewPokemon = async (seeMorePokemonElement) => {
     const isIntersecting = seeMorePokemonElement[0].isIntersecting;
 
     if(isIntersecting) { 
-        setTimeout(async () => {
-            const lastPokemonId = getLastPokemonId();
-            await displayHomePagePokemon(lastPokemonId);
-        }
-        , 0);
+        const lastPokemonId = getLastPokemonId();
+        await displayHomePagePokemon(lastPokemonId);
     }
 }

@@ -12,7 +12,7 @@ seeMorePokemonObserver.observe(seeMorePokemonElement);
 const body = document.documentElement;
 body.addEventListener("click", toggleInfoCard);
 
-const cardHeight = document.querySelector(`[data-pokemon-id="1"]`).getClientRects()[0].height.toFixed();
+// const cardHeight = document.querySelector(`[data-pokemon-id="1"]`).getClientRects()[0].height.toFixed();
 // const container = document.querySelector(".container").scroll
 
 

@@ -7,8 +7,8 @@ export const populateStats = (stats) => {
         const { name, base } = stat;
         
         const statElement = document.querySelector(`[data-stat="${name}"]`);
-        const statValueEelment = statElement.querySelector(".stat-value");
-        statValueEelment.textContent = base;
+        const statValueElement = statElement.querySelector(".stat-value");
+        statValueElement.textContent = base;
 
         const statSlider = statElement.querySelector(".stat-slider");
         const filledStatSlider = statSlider.querySelector(".filled-stat-slider");

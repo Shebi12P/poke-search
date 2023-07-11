@@ -4,7 +4,7 @@ import { fetchPokemon } from "../../api/fetchPokemon.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
-const cardGrid = document.querySelector(".card-grid");
+const cardList = document.querySelector(".card-list");
 
 export const displayHomePagePokemon = async (lastPokemonId = 0) => {
     let pokemonLimit = parseInt(lastPokemonId + 9);
@@ -24,12 +24,13 @@ export const displayHomePagePokemon = async (lastPokemonId = 0) => {
             cachePokemon(pokemon);
         }
 
-        const card = await createCard(pokemon, pokemonFromCache);
+        const card = createCard(pokemon, pokemonFromCache);
         pokemonCards.push(card);
-        // cardGrid.appendChild(card);
     }
 
     pokemonCards.forEach(pokemoncard => {
-        cardGrid.appendChild(pokemoncard);
+        const listItem = document.createElement("li");
+        listItem.appendChild(pokemoncard)
+        cardList.appendChild(listItem);
     })
 }
