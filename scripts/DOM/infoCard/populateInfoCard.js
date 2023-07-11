@@ -15,7 +15,7 @@ export const populateInfoCard = async (pokemonName) => {
     populateTypeBadges(types);
 
     const { weight, height } = pokemonData;
-    populateMeasurements(weight, height);
+    populateMeasurements(height, weight);
 
     const stats = pokemonData.stats;
     populateStats(stats);

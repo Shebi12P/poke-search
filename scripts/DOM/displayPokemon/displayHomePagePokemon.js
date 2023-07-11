@@ -28,9 +28,8 @@ export const displayHomePagePokemon = async (lastPokemonId = 0) => {
         pokemonCards.push(card);
     }
 
-    pokemonCards.forEach(pokemoncard => {
-        const listItem = document.createElement("li");
-        listItem.appendChild(pokemoncard)
-        cardList.appendChild(listItem);
+    pokemonCards.forEach(pokemonCard => {
+        const listItem = `<li class="card-container">${pokemonCard}</li>`;
+        cardList.insertAdjacentHTML("beforeend", listItem);
     })
 }

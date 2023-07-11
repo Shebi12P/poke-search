@@ -1,9 +1,6 @@
 export const createCardImage = (imageUrl, pokemonName) => {
     const imageAlt = `An image of ${pokemonName}`;
-    const image = document.createElement("img");
-
-    image.setAttribute("src", imageUrl);
-    image.setAttribute("alt", imageAlt);
+    const image = `<img src="${imageUrl}" alt="${imageAlt}"></img>`;
 
     return image;
 }

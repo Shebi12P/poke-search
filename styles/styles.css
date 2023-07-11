@@ -168,8 +168,17 @@ img {
 
 /*Card */
 .card {
+    --card-spacing: 2rem;
     background-color: var(--primary-300);
     border-radius: 2rem;
+}
+
+.card-container[aria-hidden="true"] {
+    opacity: 0;
+}
+
+.card-container[aria-hidden="false"] {
+    opacity: 1;
 }
 
 .card-header {
@@ -185,8 +194,7 @@ img {
 }
 
 .card-body {
-    --card-body-spacing: 2rem;
-    padding-inline: var(--card-body-spacing);
+    padding-inline: var(--card-spacing);
 }
 
 .card-body h2 {
@@ -194,13 +202,13 @@ img {
 }
 
 .card-body .type-badges {
-    margin-bottom: var(--card-body-spacing);
+    margin-bottom: var(--card-spacing);
     display: flex;
     gap: .5rem;
 }
 
 .card-body button {
-    margin-bottom: var(--card-body-spacing);
+    margin-bottom: var(--card-spacing);
     width: max-content;
 }
 
@@ -237,7 +245,7 @@ img {
     max-width: max-content;
     gap: 2rem;
     padding-top: 3rem;
-    padding-inline: 3rem;
+    padding-inline: var(--card-spacing);
 }
 
 .default-sprite,

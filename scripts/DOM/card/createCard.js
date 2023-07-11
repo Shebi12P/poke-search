@@ -17,17 +17,15 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
         pokemonName = fetchedPokemonData.name;
         pokemonTypes = getPokemonTypes(fetchedPokemonData);
     }
-    
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.setAttribute("data-pokemon-name", fetchedPokemonData.name);
-    card.setAttribute("data-pokemon-id", fetchedPokemonData.id);
-
     const cardHeader = createCardHeader(frontImageUrl, pokemonName);
     const cardBody = createCardBody(pokemonName, pokemonTypes);
-
-    card.appendChild(cardHeader);
-    card.appendChild(cardBody);
+    
+    const card = `<div class="card" data-pokemon-name="${fetchedPokemonData.name}" 
+        data-pokemon-id="${fetchedPokemonData.id}">
+            ${cardHeader}
+            ${cardBody}
+        </div>
+    `;
 
     return card;
 }

@@ -4,7 +4,7 @@ import { getPokemonSprites } from "../utils/getPokemonSprites.js";
 
 export const cachePokemon = (pokemonData) => {
     const { name, id, weight, height } = pokemonData;
-
+    
     const dataToCache = {
         name: name,
         id: id,
