@@ -4,8 +4,8 @@ import { populateTypeBadges } from "./populateTypeBadges.js";
 import { populateMeasurements } from "./populateMeasurements.js";
 import { populateStats } from "./populateStats.js";
 
-export const populateInfoCard = async (pokemonName) => {
-    const pokemonData = getPokemonDataFromCache(pokemonName);
+export const populateInfoCard = async (pokemonId) => {
+    const pokemonData = getPokemonDataFromCache(pokemonId);
 
     const defaultSpriteUrl = pokemonData.sprites[0];
     const shinySpriteUrl = pokemonData.sprites[1];

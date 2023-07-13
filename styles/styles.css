@@ -104,9 +104,11 @@ img {
     font-weight: 700;
 }
 
+.search-pokemon-form {
+    margin-left: auto;
+}
 .input-group {
     --input-border-radius: 2rem;
-    margin-left: auto;
     background-color: var(--neutral-200);
     border-radius: var(--input-border-radius);
 }
@@ -470,7 +472,7 @@ img {
         gap: 2rem
     }
 
-    .input-group {
+    .search-pokemon-form {
         margin-inline: auto;
     }
 

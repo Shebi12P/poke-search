@@ -3,7 +3,6 @@ import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 import { handlePokemonVisibility } from "../../utils/handlePokemonVisibility.js";
 
 // const pokemonVisibilityObserver = new IntersectionObserver(handlePokemonVisibility);
-
 export const loadNewPokemon = async (seeMorePokemonElement) => {
     const isIntersecting = seeMorePokemonElement[0].isIntersecting;
 

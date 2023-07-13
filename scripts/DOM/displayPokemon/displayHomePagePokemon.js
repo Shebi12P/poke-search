@@ -18,10 +18,14 @@ export const displayHomePagePokemon = async (lastPokemonId = 0) => {
         if(isPokemonCashed(pokemonId)) {
             pokemon = getPokemonDataFromCache(pokemonId);
             pokemonFromCache = true;
+
+            console.log("From cache");
         }
         else {
             pokemon = await fetchPokemon(pokemonId);
             cachePokemon(pokemon);
+
+            console.log("From api");
         }
 
         const card = createCard(pokemon, pokemonFromCache);

@@ -8,9 +8,9 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
     let pokemonTypes = [];
 
     if(isPokemonFromCache) {
-        frontImageUrl = cacheData.sprites[0];
-        pokemonName = cacheData.name;
-        pokemonTypes = cacheData.types;
+        frontImageUrl = fetchedPokemonData.sprites[0];
+        pokemonName = fetchedPokemonData.name;
+        pokemonTypes = fetchedPokemonData.types;
     }
     else {
         frontImageUrl = fetchedPokemonData.sprites.other["official-artwork"].front_default;

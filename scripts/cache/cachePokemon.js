@@ -16,5 +16,8 @@ export const cachePokemon = (pokemonData) => {
     };
 
     const stringifedPokemonData = JSON.stringify(dataToCache);
-    localStorage.setItem(name, stringifedPokemonData);
+    localStorage.setItem(id, stringifedPokemonData);
+
+    const allPokemon = `${localStorage.getItem("allPokemon")}${pokemonData.name}${pokemonData.id}`;
+    localStorage.setItem("allPokemon", allPokemon);
 }

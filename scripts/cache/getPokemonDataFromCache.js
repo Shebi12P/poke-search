@@ -1,5 +1,5 @@
-export const getPokemonDataFromCache = (pokemonName) => {
-    let pokemonData = localStorage.getItem(pokemonName);
+export const getPokemonDataFromCache = (pokemonId) => {
+    let pokemonData = localStorage.getItem(pokemonId);
     pokemonData = JSON.parse(pokemonData);
 
     return pokemonData;

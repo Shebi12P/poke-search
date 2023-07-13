@@ -11,7 +11,7 @@ export const toggleInfoCard = (event) => {
     const isCloseButtonChildrenClicked = clickedObject.getAttribute("data-close-button-child");
     
     if(isButtonClicked) {
-        const pokemonName = clickedObject.closest(".card").getAttribute("data-pokemon-name");
+        const pokemonName = clickedObject.closest(".card").getAttribute("data-pokemon-id");
         populateInfoCard(pokemonName);
 
         pokemonInfoCard.setAttribute("aria-hidden", "false");
