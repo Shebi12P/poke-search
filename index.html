@@ -9,7 +9,21 @@
     <title>Poke-search</title>
 </head>
 <body>
-    <div class="overlay" aria-hidden="true"></div>
+    <div class="card error-card" aria-hidden="true">
+        <span class="close-button error-close-button">
+            <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
+                <path data-close-button-child="true" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+              </svg>
+        </span>
+        <div class="card-header error-card-header">
+            <h2>Error has occured</h2>
+        </div>
+        <div class="card-body error-card-body">
+            <p class="error-status"></p>
+            <p class="error-message"></p>
+            <p class="user-tip"></p>
+        </div>
+    </div>
     <div class="card info-card" aria-hidden="true">
         <span class="close-button">
             <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
@@ -99,12 +113,12 @@
             <p class="logo">Poke-search</p>
             <form class="search-pokemon-form">
                 <div class="input-group">
-                    <label class="pokemon-search-label" for="search">
+                    <label class="search-pokemon-label  " for="search">
                         <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
                     </label>
-                    <input class="pokemon-search" id="search" type="search" placeholder="Search for a pokemon...">
+                    <input class="search-pokemon-input" id="search" type="search" placeholder="Search for a pokemon...">
                 </div>
             </form>
         </header>

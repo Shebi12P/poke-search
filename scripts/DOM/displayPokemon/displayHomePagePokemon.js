@@ -10,7 +10,7 @@ export const displayHomePagePokemon = async (lastPokemonId = 0) => {
     let pokemonLimit = parseInt(lastPokemonId + 9);
     let pokemon = {};
     const pokemonCards = [];
-
+    
     for(let i = lastPokemonId; i < pokemonLimit; i++) {
         let pokemonId = parseInt(i+1);
         let pokemonFromCache = false;

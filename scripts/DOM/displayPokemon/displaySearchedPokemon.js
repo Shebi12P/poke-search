@@ -1,26 +1,20 @@
 import { fetchPokemon } from "../../api/fetchPokemon.js";
-import { isPokemonCashed } from "../../cache/isPokemonCached.js";
-import { findPokemonIdFromString } from "../../utils/findPokemonIdFromString.js";
-import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
+import { findPokemonIdFromCache } from "../../cache/findPokemonIdFromCache.js";
 import { cachePokemon } from "../../cache/cachePokemon.js";
+import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
-    const pokemonName = document.querySelector(".pokemon-search").value;
-    const pokemonId = findPokemonIdFromString(pokemonName);
-    if(!pokemonId) return;
+    const pokemonName = document.querySelector(".search-pokemon-input").value.toLowerCase();
+    let pokemonId = findPokemonIdFromCache(pokemonName);
+    console.log(pokemonId);
     let pokemon = {};
-    let from = ""; 
     
-    if(isPokemonCashed(pokemonId)) {
-        pokemon = getPokemonDataFromCache(pokemonId);
-        from = "cache";
-    }
-    else {
-        pokemon = await fetchPokemon(pokemonId);
-        from ="api"
+    if(pokemonId === -1) {
+        pokemon = await fetchPokemon(pokemonName);
+        pokemonId = pokemon.id;
         cachePokemon(pokemon);
     }
-
-    console.log(`${pokemon.name} from ${from}`);
+    
+    toggleInfoCard(event, pokemonId);
 }

@@ -1,25 +1,28 @@
 import { populateInfoCard } from "./populateInfoCard.js";
 
-export const toggleInfoCard = (event) => {
+export const toggleInfoCard = (event, pokemonId) => {
     const pokemonInfoCard = document.querySelector(".info-card");
-    const overlay = document.querySelector(".overlay");
     
+    if(event.type === "submit") {
+        populateInfoCard(pokemonId);
+
+        pokemonInfoCard.setAttribute("aria-hidden", "false");
+    }
+
     const clickedObject = event.target;
-    const isButtonClicked = clickedObject.classList.contains("show-more-info");
-    const isOverlayClicked = clickedObject.classList.contains("overlay");
+    const isShowMoreButtonClicked = clickedObject.classList.contains("show-more-info");
     const isCloseButtonClicked = clickedObject.classList.contains("close-button");
     const isCloseButtonChildrenClicked = clickedObject.getAttribute("data-close-button-child");
     
-    if(isButtonClicked) {
-        const pokemonName = clickedObject.closest(".card").getAttribute("data-pokemon-id");
-        populateInfoCard(pokemonName);
+    if(isShowMoreButtonClicked) {
+        pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
+        populateInfoCard(pokemonId);
 
         pokemonInfoCard.setAttribute("aria-hidden", "false");
-        overlay.setAttribute("aria-hidden", "false");
+        return;
     }
     
-    if(isOverlayClicked || isCloseButtonClicked || isCloseButtonChildrenClicked) {
+    if(isCloseButtonClicked || isCloseButtonChildrenClicked) {
         pokemonInfoCard.setAttribute("aria-hidden", "true");
-        overlay.setAttribute("aria-hidden", "true");
     }
 }

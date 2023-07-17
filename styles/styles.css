@@ -117,7 +117,7 @@ img {
     outline: 4px solid var(--primary-100);
 }
 
-.pokemon-search {
+.search-pokemon-input {
     background-color: var(--neutral-200);
     color: var(--neutral-300);
     font-size: 1rem;
@@ -129,7 +129,7 @@ img {
     border: none;
 }
 
-.pokemon-search-label {
+.search-pokemon-label {
     padding-inline: .25rem;
     color: var(--neutral-300);
     height: 100%;
@@ -225,7 +225,7 @@ img {
     z-index: 10;
     isolation: isolate;
     overflow-y: auto;
-    min-width: max-content;
+    min-width: 30rem;
     max-height: 35rem;
     transition: transform var(--info-card-animation-duration) ease-in-out;
 }
@@ -271,6 +271,38 @@ img {
 .close-button:hover svg {
     color: var(--primary-100);
 }
+
+/* Error card */
+
+.error-card {
+    position: fixed;
+    top: min(5%, 1% + 1vw);
+    left: 50vw;
+    right: 50vw;
+    z-index: 10;
+    isolation: isolate;
+    min-width: 30rem;
+}
+
+.error-card[aria-hidden="true"] {
+    transform: scale(0);
+}
+
+.error-card[aria-hidden="false"] {
+    transform: scale(1);
+}
+
+.error-card[data-animation-end="true"] {
+    transform: translateX(-50%);
+}
+
+.error-card-header h2 {
+    width: 100%;
+}
+.error-card-body {
+    margin-bottom: var(--card-spacing);
+}
+
 
 /*Measurements */
 

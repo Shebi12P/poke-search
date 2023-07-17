@@ -17,6 +17,7 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
         pokemonName = fetchedPokemonData.name;
         pokemonTypes = getPokemonTypes(fetchedPokemonData);
     }
+    
     const cardHeader = createCardHeader(frontImageUrl, pokemonName);
     const cardBody = createCardBody(pokemonName, pokemonTypes);
     
