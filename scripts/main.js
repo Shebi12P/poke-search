@@ -4,8 +4,9 @@ import { displaySearchedPokemon } from "./DOM/displayPokemon/displaySearchedPoke
 import { loadNewPokemon } from "./DOM/displayPokemon/loadNewPokemon.js";
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
+import { cacheLastPokemonId } from "./cache/cacheLastPokemonId.js";
 
-
+await cacheLastPokemonId();
 await displayHomePagePokemon();
 
 const seeMorePokemonObserver = new IntersectionObserver(loadNewPokemon, { rootMargin: "50px"});

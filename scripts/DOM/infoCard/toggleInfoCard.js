@@ -1,12 +1,15 @@
 import { populateInfoCard } from "./populateInfoCard.js";
 
 export const toggleInfoCard = (event, pokemonId) => {
+    const milisecondDelay = 250;
     const pokemonInfoCard = document.querySelector(".info-card");
     
     if(event.type === "submit") {
         populateInfoCard(pokemonId);
 
-        pokemonInfoCard.setAttribute("aria-hidden", "false");
+        setTimeout(() => {
+            pokemonInfoCard.setAttribute("aria-hidden", "false");
+        }, milisecondDelay);
     }
 
     const clickedObject = event.target;
@@ -18,8 +21,10 @@ export const toggleInfoCard = (event, pokemonId) => {
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
         populateInfoCard(pokemonId);
 
-        pokemonInfoCard.setAttribute("aria-hidden", "false");
-        return;
+        setTimeout(() => {
+            pokemonInfoCard.setAttribute("aria-hidden", "false");
+            return;
+        }, milisecondDelay);
     }
     
     if(isCloseButtonClicked || isCloseButtonChildrenClicked) {

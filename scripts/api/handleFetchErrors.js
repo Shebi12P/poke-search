@@ -21,6 +21,5 @@ export const handleFetchErrors = (status) => {
         error.message = "Unsuspected error";
         error.userTip = "Try again later.";
         return error;
-
     }
 }

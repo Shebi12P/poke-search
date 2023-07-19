@@ -12,7 +12,7 @@ export const fetchPokemon = async (pokemon) => {
         const error = handleFetchErrors(response.status);
         populateErrorCard(error);
         toggleErrorCard();
-        return;
+        return error;
     }
 
     const fetchedPokemon = await response.json();

@@ -7,14 +7,17 @@ export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
     const pokemonName = document.querySelector(".search-pokemon-input").value.toLowerCase();
     let pokemonId = findPokemonIdFromCache(pokemonName);
-    console.log(pokemonId);
-    let pokemon = {};
     
-    if(pokemonId === -1) {
-        pokemon = await fetchPokemon(pokemonName);
-        pokemonId = pokemon.id;
-        cachePokemon(pokemon);
+    if(pokemonId !== -1) {
+        toggleInfoCard(event, pokemonId);
+    }
+  
+    const fetchedPokemon = await fetchPokemon(pokemonName);
+        
+    if(Object.keys(fetchedPokemon).includes("status")) {
+        return;
     }
     
-    toggleInfoCard(event, pokemonId);
+    pokemonId = fetchedPokemon.id;
+    cachePokemon(fetchedPokemon);
 }
