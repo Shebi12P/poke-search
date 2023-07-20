@@ -19,6 +19,7 @@ export const toggleInfoCard = (event, pokemonId) => {
     
     if(isShowMoreButtonClicked) {
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
+        console.log(clickedObject.closest(".card"))
         populateInfoCard(pokemonId);
 
         setTimeout(() => {

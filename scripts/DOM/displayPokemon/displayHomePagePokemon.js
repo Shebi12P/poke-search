@@ -5,8 +5,10 @@ import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
+import { checkForFetchErrors } from "../../utils/checkForFetchErrors.js";
+import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
 
-export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
+export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {    
     if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID) {
         return;
     }
@@ -15,28 +17,37 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
 
     const pokemonPerRender = getPokemonAmountPerRender(lastPokemonCardId);
     let pokemonLimit = parseInt(lastPokemonCardId + pokemonPerRender);
-    let pokemon = {};
     const pokemonCards = [];
     
     for(let i = lastPokemonCardId; i < pokemonLimit; i++) {
+        let card = "";
+        let pokemon = {};
         let pokemonId = parseInt(i+1);
         let pokemonFromCache = false;
 
         if(isPokemonCashed(pokemonId)) {
             pokemon = getPokemonDataFromCache(pokemonId);
             pokemonFromCache = true;
+            card = createPokemonCard(pokemon, pokemonFromCache);
+            pokemonCards.push(card);
 
-            console.log("From cache");
+            continue;
         }
-        else {
-            pokemon = await fetchPokemon(pokemonId);
+        
+        pokemon = await fetchPokemon(pokemonId);
+        let hasFetchError = checkForFetchErrors(pokemon);
+        
+        if(!hasFetchError) {
             cachePokemon(pokemon);
-
-            console.log("From api");
+            card = createPokemonCard(pokemon, pokemonFromCache);
+            pokemonCards.push(card);
+            
+            continue;
         }
 
-        const card = createPokemonCard(pokemon, pokemonFromCache);
-        pokemonCards.push(card);
+        const error = pokemon;
+        card = createPokemonErrorCard(error);
+        pokemonCards.push(card);        
     }
 
     pokemonCards.forEach(pokemonCard => {
