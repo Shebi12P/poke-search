@@ -1,6 +1,7 @@
-- Add more safety and error checking for fetching the pokemon
 - Add a built-in hint for searching pokemon (add displaying pokemon from the search)
-- Add showing more pokemon info after clicking button
 - Add filtering pokemon by generation (with json file with all pokemon from each generation)
--Fix right and left position of info-card
+- Fix right and left position of info-card
 - Add feature showing/dissapering cards that aren't on the screen
+- Add pokemon description
+- Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)
+= Add showing pokemon moves (optional)

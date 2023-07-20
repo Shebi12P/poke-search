@@ -4,8 +4,13 @@ import { fetchPokemon } from "../../api/fetchPokemon.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
+import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 
 export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
+    if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID) {
+        return;
+    }
+    
     const cardList = document.querySelector(".card-list");
 
     const pokemonPerRender = getPokemonAmountPerRender(lastPokemonCardId);

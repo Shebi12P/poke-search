@@ -1,10 +1,9 @@
-import { getLastPokemonIdFromCache } from "../../cache/getLastPokemonIdFromCache.js";
+import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 
 export const getPokemonAmountPerRender = (lastPokemonCardId) => {
     let pokemonPerRender = 9;
-    const lastPokemonId = getLastPokemonIdFromCache();
-    const numberOfPokemonForLastRender = lastPokemonId % pokemonPerRender;
-    const lastPokemonIdWithFullRender = lastPokemonId - (numberOfPokemonForLastRender);
+    const numberOfPokemonForLastRender = LAST_BASE_FORM_POKEMON_ID % pokemonPerRender;
+    const lastPokemonIdWithFullRender = LAST_BASE_FORM_POKEMON_ID - (numberOfPokemonForLastRender);
 
     if(lastPokemonCardId === lastPokemonIdWithFullRender) {
         pokemonPerRender = numberOfPokemonForLastRender;

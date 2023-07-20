@@ -1,0 +1,1 @@
+export const LAST_BASE_FORM_POKEMON_ID = 1010;
