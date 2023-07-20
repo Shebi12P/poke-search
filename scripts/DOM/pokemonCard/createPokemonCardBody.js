@@ -1,6 +1,6 @@
 import { createTypeBadges } from "../typeBadge/createTypeBadges.js";
 
-export const createCardBody = (pokemonName, pokemonTypes) => {
+export const createPokemonCardBody = (pokemonName, pokemonTypes) => {
     pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
     const header = `<h2>${pokemonName}</h2>`;
     

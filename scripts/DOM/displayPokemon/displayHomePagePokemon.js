@@ -1,4 +1,4 @@
-import { createCard } from "../card/createCard.js";
+import { createPokemonCard } from "../pokemonCard/createPokemonCard.js";
 import { cachePokemon } from "../../cache/cachePokemon.js";
 import { fetchPokemon } from "../../api/fetchPokemon.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
@@ -35,7 +35,7 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
             console.log("From api");
         }
 
-        const card = createCard(pokemon, pokemonFromCache);
+        const card = createPokemonCard(pokemon, pokemonFromCache);
         pokemonCards.push(card);
     }
 

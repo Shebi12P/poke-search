@@ -1,8 +1,8 @@
-import { createCardHeader } from "./createCardHeader.js";
-import { createCardBody } from "./createCardBody.js";
+import { createPokemonCardHeader } from "./createPokemonCardHeader.js";
+import { createPokemonCardBody } from "./createPokemonCardBody.js";
 import { getPokemonTypes } from "../../utils/getPokemonTypes.js";
 
-export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
+export const createPokemonCard = (fetchedPokemonData, isPokemonFromCache) => {
     let frontImageUrl = "";
     let pokemonName = "";
     let pokemonTypes = [];
@@ -18,13 +18,13 @@ export const createCard = (fetchedPokemonData, isPokemonFromCache) => {
         pokemonTypes = getPokemonTypes(fetchedPokemonData);
     }
     
-    const cardHeader = createCardHeader(frontImageUrl, pokemonName);
-    const cardBody = createCardBody(pokemonName, pokemonTypes);
+    const pokemonCardHeader = createPokemonCardHeader(frontImageUrl, pokemonName);
+    const pokemonCardBody = createPokemonCardBody(pokemonName, pokemonTypes);
     
     const card = `<div class="card" data-pokemon-name="${fetchedPokemonData.name}" 
         data-pokemon-id="${fetchedPokemonData.id}">
-            ${cardHeader}
-            ${cardBody}
+            ${pokemonCardHeader}
+            ${pokemonCardBody}
         </div>
     `;
 
