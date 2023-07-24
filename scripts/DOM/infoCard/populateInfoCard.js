@@ -6,9 +6,15 @@ import { populateStats } from "./populateStats.js";
 import { populateInfoCardHeading } from "./populateInfoCardHeading.js";
 
 export const populateInfoCard = async (pokemonId) => {
+
     const pokemonData = getPokemonDataFromCache(pokemonId);
     
     const pokemonName = pokemonData.name;
+    const infoCard = document.querySelector(".info-card");
+    infoCard.setAttribute("data-pokemon-name", pokemonName);
+
+    infoCard.setAttribute("data-pokemon-id", pokemonId);
+    
     populateInfoCardHeading(pokemonName);
     
     const defaultSpriteUrl = pokemonData.sprites[0];

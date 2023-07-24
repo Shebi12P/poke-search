@@ -1,7 +1,7 @@
 // localStorage.clear()
-import { displayHomePagePokemon } from "./DOM/displayHomePagePokemon/displayHomePagePokemon.js";
+import { displayHomePagePokemon } from "./DOM/homePagePokemon/displayHomePagePokemon.js";
 import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokemon.js";
-import { loadNewPokemon } from "./DOM/displayHomePagePokemon/loadNewHomePagePokemon.js";
+import { loadNewPokemon } from "./DOM/homePagePokemon/loadNewHomePagePokemon.js";
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
 

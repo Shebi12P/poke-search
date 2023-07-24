@@ -1,11 +1,24 @@
 import { populateInfoCard } from "./populateInfoCard.js";
+import { wasPokemonSearchedPreviousTime } from "../searchPokemon/wasPokemonSearchedPreviousTime.js";
 
 export const toggleInfoCard = (event, pokemonId) => {
     const milisecondDelay = 250;
     const pokemonInfoCard = document.querySelector(".info-card");
+
+    // if(wasPokemonSearchedPreviousTime(pokemonId)) {
+    //     console.log("Już odszukano")
+    //     setTimeout(() => {
+    //         pokemonInfoCard.setAttribute("aria-hidden", "false");
+    //     }, milisecondDelay);
+
+    //     return;
+    // }
     
     if(event.type === "submit") {
-        populateInfoCard(pokemonId);
+        if(!wasPokemonSearchedPreviousTime(pokemonId)){
+            populateInfoCard(pokemonId);
+            console.log("Nie odszkkano submit")  
+        } 
         
         setTimeout(() => {
             pokemonInfoCard.setAttribute("aria-hidden", "false");
@@ -19,8 +32,10 @@ export const toggleInfoCard = (event, pokemonId) => {
     
     if(isShowMoreButtonClicked) {
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
-        console.log(clickedObject.closest(".card"))
-        populateInfoCard(pokemonId);
+        if(!wasPokemonSearchedPreviousTime(pokemonId)) {
+            populateInfoCard(pokemonId);
+            console.log("Nie odszkkano click")
+        }
 
         setTimeout(() => {
             pokemonInfoCard.setAttribute("aria-hidden", "false");

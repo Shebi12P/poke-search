@@ -9,7 +9,7 @@ export const findPokemonIdFromCache = (pokemonName) => {
     }
 
     const foundPokemon = regularExpresion.exec(allCachedPokemon)[0];
-    const foundPokemonId = /[0-9]+/.exec(foundPokemon);
+    const foundPokemonId = /[0-9]+/.exec(foundPokemon)[0];
     
     return foundPokemonId;
 }

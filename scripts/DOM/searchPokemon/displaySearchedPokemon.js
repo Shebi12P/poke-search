@@ -10,7 +10,7 @@ export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
     let searchedPokemon = document.querySelector(".search-pokemon-input").value;
     let pokemonId;
-
+    
     if(isPokemonCashed(searchedPokemon)) {
         pokemonId = searchedPokemon;
         toggleInfoCard(event, pokemonId);
@@ -19,7 +19,7 @@ export const displaySearchedPokemon = async (event) => {
 
     
     searchedPokemon = searchedPokemon.toLowerCase();
-    getPokemonWithAlteredNames(searchedPokemon);
+    // getPokemonWithAlteredNames(searchedPokemon);
     pokemonId = findPokemonIdFromCache(searchedPokemon);
 
     if(pokemonId !== -1) {
