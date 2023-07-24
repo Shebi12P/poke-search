@@ -160,6 +160,24 @@ img {
     width: max-content;
 }
 
+/* Generation-filter */
+
+.generation-filter-wrapper:hover .generation-filter-dropdown {
+    overflow-y: visible;   
+}
+.generation-filter-dropdown {
+    list-style: none;
+    background-color: var(--neutral-100);
+    color: var(--neutral-300);
+    max-width: min-content;
+    padding: 1rem 2rem;
+    max-height: 1.5rem;
+    overflow-y: hidden;
+    z-index: 10;
+    position: absolute;
+}
+
+
 /*--------------------*/
 /*Utility classes     */
 /*--------------------*/
@@ -180,6 +198,7 @@ img {
 }
 
 /*Card */
+
 .card {
     --card-spacing: 2rem;
     background-color: var(--primary-300);
@@ -236,7 +255,7 @@ img {
     z-index: 10;
     isolation: isolate;
     overflow-y: auto;
-    min-width: 30rem;
+    min-width: 32rem;
     max-height: 35rem;
     transition: transform var(--info-card-animation-duration) ease-in-out;
 }
@@ -255,15 +274,22 @@ img {
 
 .info-card-header {
     display: flex;
+    flex-direction: column;
     max-width: max-content;
     gap: 2rem;
     padding-top: 3rem;
     padding-inline: var(--card-spacing);
 }
 
-.default-sprite,
-.shiny-sprite {
-    text-align: center;
+.info-card-heading {
+    font-size: 2rem;
+    text-align: center
+}
+
+.info-card-sprites-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
 .info-card-body {

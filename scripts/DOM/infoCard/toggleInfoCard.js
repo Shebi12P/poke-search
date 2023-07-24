@@ -6,7 +6,7 @@ export const toggleInfoCard = (event, pokemonId) => {
     
     if(event.type === "submit") {
         populateInfoCard(pokemonId);
-
+        
         setTimeout(() => {
             pokemonInfoCard.setAttribute("aria-hidden", "false");
         }, milisecondDelay);

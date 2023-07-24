@@ -20,7 +20,7 @@ export const createPokemonCard = (fetchedPokemonData, isPokemonFromCache) => {
     const pokemonCardBody = createPokemonCardBody(pokemonName, pokemonTypes);
     
     const card = `<div class="card" data-pokemon-name="${fetchedPokemonData.name}" 
-        data-pokemon-id="${fetchedPokemonData.id}" data-error='false'">
+        data-pokemon-id="${fetchedPokemonData.id}" data-error="false">
             ${pokemonCardHeader}
             ${pokemonCardBody}
         </div>

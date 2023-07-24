@@ -5,7 +5,7 @@ import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
-import { checkForFetchErrors } from "../../utils/checkForFetchErrors.js";
+import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
 
 export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {    
@@ -35,9 +35,8 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
         }
         
         pokemon = await fetchPokemon(pokemonId);
-        let hasFetchError = checkForFetchErrors(pokemon);
         
-        if(!hasFetchError) {
+        if(!fetchErrorsOccured(pokemon)) {
             cachePokemon(pokemon);
             card = createPokemonCard(pokemon, pokemonFromCache);
             pokemonCards.push(card);

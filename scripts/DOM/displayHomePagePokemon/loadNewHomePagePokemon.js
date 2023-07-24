@@ -7,8 +7,8 @@ export const loadNewPokemon = async (seeMorePokemonElement) => {
     const isIntersecting = seeMorePokemonElement[0].isIntersecting;
 
     if(isIntersecting) { 
-        const lastPokemonId = getLastPokemonCardId();
-        await displayHomePagePokemon(lastPokemonId);
+        const lastPokemonCardId = getLastPokemonCardId();
+        await displayHomePagePokemon(lastPokemonCardId);
     }
 
     // let pokemonCards = document.querySelectorAll(".card-container");

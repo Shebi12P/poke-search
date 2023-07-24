@@ -3,14 +3,17 @@ import { populateinfoCardImages } from "./populateInfoCardImgages.js";
 import { populateTypeBadges } from "./populateTypeBadges.js";
 import { populateMeasurements } from "./populateMeasurements.js";
 import { populateStats } from "./populateStats.js";
+import { populateInfoCardHeading } from "./populateInfoCardHeading.js";
 
 export const populateInfoCard = async (pokemonId) => {
     const pokemonData = getPokemonDataFromCache(pokemonId);
-    console.log(pokemonId);
-
+    
+    const pokemonName = pokemonData.name;
+    populateInfoCardHeading(pokemonName);
+    
     const defaultSpriteUrl = pokemonData.sprites[0];
     const shinySpriteUrl = pokemonData.sprites[1];
-    populateinfoCardImages(defaultSpriteUrl, shinySpriteUrl);
+    populateinfoCardImages(defaultSpriteUrl, shinySpriteUrl, pokemonName);
 
     const types = pokemonData.types;
     populateTypeBadges(types);

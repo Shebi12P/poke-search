@@ -1,15 +1,11 @@
-localStorage.clear()
-import { displayHomePagePokemon } from "./DOM/displayPokemon/displayHomePagePokemon.js";
-import { displaySearchedPokemon } from "./DOM/displayPokemon/displaySearchedPokemon.js";
-import { loadNewPokemon } from "./DOM/displayPokemon/loadNewPokemon.js";
+// localStorage.clear()
+import { displayHomePagePokemon } from "./DOM/displayHomePagePokemon/displayHomePagePokemon.js";
+import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokemon.js";
+import { loadNewPokemon } from "./DOM/displayHomePagePokemon/loadNewHomePagePokemon.js";
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
-import { hideInitialErrorMessage } from "./DOM/hideInitialErrorMessage.js";
 
 await displayHomePagePokemon();
-hideInitialErrorMessage();
-
-
 
 const seeMorePokemonObserver = new IntersectionObserver(loadNewPokemon, { rootMargin: "50px"});
 const seeMorePokemonElement = document.querySelector(".see-more-pokemon");

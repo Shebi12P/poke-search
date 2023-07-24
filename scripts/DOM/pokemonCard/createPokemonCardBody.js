@@ -1,7 +1,8 @@
 import { createTypeBadges } from "../typeBadge/createTypeBadges.js";
+import { capitalizeText } from "../../utils/capitalizeText.js";
 
 export const createPokemonCardBody = (pokemonName, pokemonTypes) => {
-    pokemonName = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+    pokemonName = capitalizeText(pokemonName);
     const header = `<h2>${pokemonName}</h2>`;
     
     const button = `<button class="button show-more-info">See more...</button>`;   

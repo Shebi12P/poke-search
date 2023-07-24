@@ -1,0 +1,1 @@
+const firstPokemonIdForEachGeneration = [1, 152, 252, 387, 495, 650, 722, 810, 906];
