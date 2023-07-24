@@ -69,7 +69,6 @@ body {
     line-height: 1.6;
     background-color: var(--primary-400);
     color: var(--neutral-200);
-    position: relative;
 }
 
 input,
@@ -183,8 +182,9 @@ img {
 /*--------------------*/
 
 .container {
-    width: min(100% - 4rem, 60rem);
+    max-width: min(100% - 4rem, 60rem);
     margin-inline: auto;
+    position: relative;
 }
 
 .initial-error-message[aria-hidden="false"] {
@@ -250,12 +250,11 @@ img {
     --info-card-animation-duration: 250ms;
     position: fixed;
     top: min(5%, 1% + 1vw);
-    left: 50vw;
-    right: 50vw;
+    left: 25%;
+    right: 25%;
     z-index: 10;
     isolation: isolate;
     overflow-y: auto;
-    min-width: 32rem;
     max-height: 35rem;
     transition: transform var(--info-card-animation-duration) ease-in-out;
 }
@@ -268,14 +267,10 @@ img {
     transform: scale(1);
 }
 
-.info-card[data-animation-end="true"] {
-    transform: translateX(-50%);
-}
-
 .info-card-header {
     display: flex;
     flex-direction: column;
-    max-width: max-content;
+    min-width: 100%;
     gap: 2rem;
     padding-top: 3rem;
     padding-inline: var(--card-spacing);
@@ -314,11 +309,15 @@ img {
 .error-card {
     position: fixed;
     top: min(5%, 1% + 1vw);
-    left: 50vw;
-    right: 50vw;
+    left: 25%;
+    right: 25%;
     z-index: 10;
     isolation: isolate;
-    min-width: 30rem;
+    max-width: 40rem;
+}
+
+.error-card-header {
+    margin-inline: var(--card-spacing);
 }
 
 .error-card[aria-hidden="true"] {
@@ -329,9 +328,9 @@ img {
     transform: scale(1);
 }
 
-.error-card[data-animation-end="true"] {
+/* .error-card[data-animation-end="true"] {
     transform: translateX(-50%);
-}
+} */
 
 .error-card-header h2 {
     width: 100%;
@@ -535,7 +534,7 @@ img {
     background-color: var(--fairy);
 }
 
-@media (max-width: 40em) {
+@media (max-width: 45em) {
     .main-header {
         flex-direction: column;
         gap: 2rem
@@ -553,5 +552,12 @@ img {
     .height {
         display: flex;
         flex-direction: column;
+    }
+
+    .info-card {
+        max-width: max-content;
+    }
+    .info-card-sprites-wrapper {
+        grid-template-columns: repeat(1, 1fr);
     }
 }

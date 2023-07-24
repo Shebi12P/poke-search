@@ -9,109 +9,109 @@
     <title>Poke-search</title>
 </head>
 <body>
-    <div class="card error-card" aria-hidden="true">
-        <span class="close-button error-close-button">
-            <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
-                <path data-close-button-child="true" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-        </span>
-        <div class="card-header error-card-header">
-            <h2>Error has occured</h2>
-        </div>
-        <div class="card-body error-card-body">
-            <p class="error-status"></p>
-            <p class="error-message"></p>
-            <p class="user-tip"></p>
-        </div>
-    </div>
-    <div class="card info-card" aria-hidden="true">
-        <span class="close-button">
-            <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
-                <path data-close-button-child="true" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-              </svg>
-        </span>
-        <div class="card-header info-card-header">
-            <h3 class="info-card-heading">Donphan</h3>
-            <div class="info-card-sprites-wrapper">
-                <div>
-                    <img class="default-sprite" src="" alt="Default sprite of pokemon">
-                    <p class="default-sprite-text">Default sprite</p>
-                </div>
-                <div>
-                    <img class="shiny-sprite" src="" alt="Shiny sprite of pokemon">
-                    <p class="shiny-sprite-text">Shiny sprite</p>
-                </div>
+    <div class="container">
+        <div class="card error-card" aria-hidden="true">
+            <span class="close-button error-close-button">
+                <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
+                    <path data-close-button-child="true" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </span>
+            <div class="card-header error-card-header">
+                <h2>Error has occured</h2>
+            </div>
+            <div class="card-body error-card-body">
+                <p class="error-status"></p>
+                <p class="error-message"></p>
+                <p class="user-tip"></p>
             </div>
         </div>
-        <div class="card-body info-card-body">
-            <h2 class="info-card-heading"></h2>
-            <div class="info-type-badges type-badges">
+        <div class="card info-card" aria-hidden="true">
+            <span class="close-button">
+                <svg class="icon" data-close-button-child="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
+                    <path data-close-button-child="true" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                  </svg>
+            </span>
+            <div class="card-header info-card-header">
+                <h3 class="info-card-heading">Donphan</h3>
+                <div class="info-card-sprites-wrapper">
+                    <div>
+                        <img class="default-sprite" src="" alt="Default sprite of pokemon">
+                        <p class="default-sprite-text">Default sprite</p>
+                    </div>
+                    <div>
+                        <img class="shiny-sprite" src="" alt="Shiny sprite of pokemon">
+                        <p class="shiny-sprite-text">Shiny sprite</p>
+                    </div>
+                </div>
             </div>
-            <ul class="measurements" role="list">
-                <li class="height">
-                    <span>
-                        Height:
-                    </span>
-                    <span class="height-value"></span>
-                </li>
-                <li class="weight">
-                    <span>
-                        Weight:
-                    </span>
-                    <span class="weight-value"></span>
+            <div class="card-body info-card-body">
+                <h2 class="info-card-heading"></h2>
+                <div class="info-type-badges type-badges">
+                </div>
+                <ul class="measurements" role="list">
+                    <li class="height">
+                        <span>
+                            Height:
+                        </span>
+                        <span class="height-value"></span>
+                    </li>
+                    <li class="weight">
+                        <span>
+                            Weight:
+                        </span>
+                        <span class="weight-value"></span>
+                    </li>
+                </ul>
+                <ul class="stats" role="list">
+                    <li class="stat" data-stat="hp">
+                        <span class="stat-name">HP</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="stat" data-stat="attack">
+                        <span class="stat-name">Attack</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="stat" data-stat="special-attack">
+                        <span class="stat-name">Special Attack</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="stat" data-stat="defense">
+                        <span class="stat-name">Defence</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="stat" data-stat="special-defense">
+                        <span class="stat-name">Special Defence</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="stat" data-stat="speed">
+                        <span class="stat-name">Speed</span>
+                        <span class="stat-value"></span>
+                        <span class="stat-slider">
+                            <span class="filled-stat-slider"></span>
+                        </span>
+                    </li>
+                    <li class="total-stats">
+                        Total:
+                    <span class="total-stats-value"></span>
                 </li>
             </ul>
-            <ul class="stats" role="list">
-                <li class="stat" data-stat="hp">
-                    <span class="stat-name">HP</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="stat" data-stat="attack">
-                    <span class="stat-name">Attack</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="stat" data-stat="special-attack">
-                    <span class="stat-name">Special Attack</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="stat" data-stat="defense">
-                    <span class="stat-name">Defence</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="stat" data-stat="special-defense">
-                    <span class="stat-name">Special Defence</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="stat" data-stat="speed">
-                    <span class="stat-name">Speed</span>
-                    <span class="stat-value"></span>
-                    <span class="stat-slider">
-                        <span class="filled-stat-slider"></span>
-                    </span>
-                </li>
-                <li class="total-stats">
-                    Total:
-                <span class="total-stats-value"></span>
-            </li>
-        </ul>
-    </div>
-    </div>
-    <div class="container">
+        </div>
+        </div>
         <header class="main-header">
             <p class="logo">Poke-search</p>
             <form class="search-pokemon-form">

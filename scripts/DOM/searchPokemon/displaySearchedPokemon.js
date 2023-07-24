@@ -4,6 +4,7 @@ import { cachePokemon } from "../../cache/cachePokemon.js";
 import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
+import { getPokemonWithAlteredNames } from "./getPokemonWithAlteredNames.js";
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
@@ -16,7 +17,9 @@ export const displaySearchedPokemon = async (event) => {
         return;
     }
 
+    
     searchedPokemon = searchedPokemon.toLowerCase();
+    getPokemonWithAlteredNames(searchedPokemon);
     pokemonId = findPokemonIdFromCache(searchedPokemon);
 
     if(pokemonId !== -1) {
