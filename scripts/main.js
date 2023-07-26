@@ -4,6 +4,7 @@ import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokem
 import { loadNewPokemon } from "./DOM/homePagePokemon/loadNewHomePagePokemon.js";
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
+import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
 
 await displayHomePagePokemon();
 
@@ -19,3 +20,6 @@ searchPokemonForm.addEventListener("submit", displaySearchedPokemon);
 
 const errorCloseButton = document.querySelector(".error-close-button");
 errorCloseButton.addEventListener("click", toggleErrorCard);
+
+const generationDropdownWrapper = document.querySelector(".dropdown-wrapper");
+generationDropdownWrapper.addEventListener("click", toggleDropdown);

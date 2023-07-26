@@ -7,7 +7,10 @@
     --primary-400: hsl(209, 66%, 7%);
     --neutral-100: hsl(0, 0%, 100%);
     --neutral-200: hsl(0, 0%, 96%);
-    --neutral-300: hsl(0, 0%, 40%);
+    --neutral-300: hsl(0, 0%, 90%);
+    --neutral-400: hsl(0, 0%, 40%);
+    --neutral-500: hsl(0, 0%, 10%);
+
 
     /*Type badge colors*/
     --normal: hsl(60, 22%, 56%);
@@ -69,6 +72,8 @@ body {
     line-height: 1.6;
     background-color: var(--primary-400);
     color: var(--neutral-200);
+    /* position: relative; */
+
 }
 
 input,
@@ -87,6 +92,12 @@ img {
     max-width: 100%;
 }
 
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
 /*------------------*/
 /*Main header       */
 /*------------------*/
@@ -119,7 +130,7 @@ img {
 
 .search-pokemon-input {
     background-color: var(--neutral-200);
-    color: var(--neutral-300);
+    color: var(--neutral-400);
     font-size: 1rem;
     padding: .35rem 1rem;
     border-left: none;
@@ -131,13 +142,18 @@ img {
 
 .search-pokemon-label {
     padding-inline: .25rem;
-    color: var(--neutral-300);
+    color: var(--neutral-400);
     height: 100%;
     margin-left: .25rem;
 }
 
+.search-icon {
+    color: var(--neutral-400);
+}
+
 .icon {
-    color: var(--neutral-300);
+    max-width: 24px;
+    max-height: 24px;
 }
 
 .card-list {
@@ -148,6 +164,10 @@ img {
     place-content: center;
     margin-bottom: 4rem;
     list-style: none;
+
+    /* Only tp get more space from absolutely spaced dropdown*/
+    position: relative;
+    top: 8rem;
 }
 
 .see-more-button-wrapper {
@@ -159,22 +179,6 @@ img {
     width: max-content;
 }
 
-/* Generation-filter */
-
-.generation-filter-wrapper:hover .generation-filter-dropdown {
-    overflow-y: visible;   
-}
-.generation-filter-dropdown {
-    list-style: none;
-    background-color: var(--neutral-100);
-    color: var(--neutral-300);
-    max-width: min-content;
-    padding: 1rem 2rem;
-    max-height: 1.5rem;
-    overflow-y: hidden;
-    z-index: 10;
-    position: absolute;
-}
 
 
 /*--------------------*/
@@ -187,6 +191,7 @@ img {
     position: relative;
 }
 
+/* 
 .initial-error-message[aria-hidden="false"] {
     opacity: 1;
     font-size: 2rem;
@@ -195,6 +200,68 @@ img {
 
 .initial-error-message[aria-hidden="true"] {
     opacity: 0;
+} */
+
+.dropdown-wrapper {
+    --dropdown-spacing: 1rem;
+    --dropdown-animation-time: 500ms;
+    background-color: var(--neutral-200);
+    color: var(--neutral-500);
+    padding-top: var(--dropdown-spacing);
+    border-radius: 1rem;
+    min-width: 35ch;
+    position: absolute;
+    z-index: 5;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--dropdown-spacing);
+    overflow: hidden;
+}
+
+.dropdown {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    display: grid;
+    transition: grid-template-rows var(--dropdown-animation-time);
+}
+
+.dropdown {
+    grid-template-rows: repeat(9, 0fr);
+}
+
+.dropdown[aria-expanded="false"] {
+    grid-template-rows: repeat(9, 0fr);
+}
+
+.dropdown[aria-expanded="true"] {
+    grid-template-rows: repeat(9, 1fr);
+}
+
+.dropdown-icon {
+    transition: transform var(--dropdown-animation-time);
+}
+
+.dropdown-icon[data-rotated="true"] {
+    transform: rotate(180deg);
+}
+
+.dropdown-item {
+    overflow: hidden;
+    padding-inline: var(--dropdown-spacing);
+    transition: padding-block var(--dropdown-animation-time);
+}
+
+.dropdown[aria-expanded="true"] .dropdown-item {
+    padding-block: var(--dropdown-spacing);
+}
+
+.dropdown-item:hover {
+    color: var(--primary-100);
+    background-color: var(--neutral-400);
 }
 
 /*Card */
@@ -205,13 +272,13 @@ img {
     border-radius: 2rem;
 }
 
-.card-container[aria-hidden="true"] {
+/* .card-container[aria-hidden="true"] {
     opacity: 0;
 }
 
 .card-container[aria-hidden="false"] {
     opacity: 1;
-}
+} */
 
 .card-header {
     --max-img-size: 13rem;
@@ -412,10 +479,23 @@ img {
     font-weight: 700;
 }
 
+.flex-row {
+    display: flex;
+}
+
+.gap {
+    --gap: 1rem;
+    gap: var(--gap);
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
 
 /*Overlay*/
 
-.overlay {
+/* .overlay {
     background-color: black;
     position: absolute;
     inset: 0;
@@ -433,7 +513,7 @@ img {
     transform-origin: center;
     z-index: 5;
     isolation: isolate;
-}
+} */
 
 
 /*Button*/
@@ -559,5 +639,9 @@ img {
     }
     .info-card-sprites-wrapper {
         grid-template-columns: repeat(1, 1fr);
+    }
+
+    .dropdown-wrapper {
+        right: 22.5%;
     }
 }

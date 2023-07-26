@@ -116,8 +116,8 @@
             <p class="logo">Poke-search</p>
             <form class="search-pokemon-form">
                 <div class="input-group">
-                    <label class="search-pokemon-label  " for="search">
-                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
+                    <label class="search-pokemon-label" for="search">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
                     </label>
@@ -126,25 +126,30 @@
             </form>
         </header>
         <main>
-            <!-- <div class="generation-filter-wrapper">
-                <p>Filter pokemon by generation</p>
-                <ul class="generation-filter-dropdown" role="list">
-                    <li>Generation 1</li>
-                    <li>Generation 2</li>
-                    <li>Generation 3</li>
-                    <li>Generation 4</li>
-                    <li>Generation 5</li>
-                    <li>Generation 6</li>
-                    <li>Generation 7</li>
-                    <li>Generation 8</li>
-                    <li>Generation 9</li>
+            <div class="dropdown-wrapper">
+                <div class="flex-row gap space-around">
+                    <p>Filter pokemon by generation</p>
+                    <svg class="icon dropdown-icon" data-rotated="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </div>
+                <ul class="dropdown" role="list" aria-expanded="false">
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="1">Generation 1</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="152">Generation 2</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="252">Generation 3</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="387">Generation 4</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="495">Generation 5</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="650">Generation 6</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="722">Generation 7</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="810">Generation 8</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="906">Generation 9</li>
                 </ul>
-            </div> -->
+            </div>
 
-            <div class="initial-error-message" aria-hidden="true">
+            <!-- <div class="initial-error-message" aria-hidden="true">
                 <h3>Something went wrong</h3>
                 <p>Try again later</p>
-            </div>
+            </div> -->
             <ul class="card-list" role="list">
             </ul>
             <div class="see-more-pokemon" aria-hidden="true">
