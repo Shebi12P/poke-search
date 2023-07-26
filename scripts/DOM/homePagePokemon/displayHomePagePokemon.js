@@ -22,7 +22,8 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
     for(let i = lastPokemonCardId; i < pokemonLimit; i++) {
         let card = "";
         let pokemon = {};
-        let pokemonId = parseInt(i+1);
+        let pokemonId = i+1;
+        console.log(pokemonId);
         let pokemonFromCache = false;
 
         if(isPokemonCashed(pokemonId)) {

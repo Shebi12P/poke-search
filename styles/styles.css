@@ -1,15 +1,17 @@
 
 :root {
     /*Colors*/
-    --primary-100: hsl(207, 67%, 54%);
-    --primary-200: hsl(207, 73%, 25%);
-    --primary-300: hsl(207, 70%, 9%);
-    --primary-400: hsl(209, 66%, 7%);
+    --primary-100: hsl(207, 70%, 60%);
+    --primary-200: hsl(207, 67%, 54%);
+    --primary-300: hsl(207, 73%, 25%);
+    --primary-400: hsl(207, 70%, 9%);
+    --primary-500: hsl(209, 66%, 7%);
     --neutral-100: hsl(0, 0%, 100%);
     --neutral-200: hsl(0, 0%, 96%);
     --neutral-300: hsl(0, 0%, 90%);
-    --neutral-400: hsl(0, 0%, 40%);
-    --neutral-500: hsl(0, 0%, 10%);
+    --neutral-400: hsl(0, 0%, 80%);
+    --neutral-500: hsl(0, 0%, 40%);
+    --neutral-600: hsl(0, 0%, 10%);
 
 
     /*Type badge colors*/
@@ -57,7 +59,6 @@
 /*------------------*/
 /*General reset     */
 /*------------------*/
-
 *,
 *::before,
 *::after {
@@ -70,7 +71,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.125em;
     line-height: 1.6;
-    background-color: var(--primary-400);
+    background-color: var(--primary-500);
     color: var(--neutral-200);
     /* position: relative; */
 
@@ -101,7 +102,6 @@ main {
 /*------------------*/
 /*Main header       */
 /*------------------*/
-
 .main-header {
     display: flex;
     align-items: center;
@@ -109,7 +109,7 @@ main {
 }
 
 .logo {
-    color: var(--primary-100);
+    color: var(--primary-200);
     font-size: 3rem;
     font-weight: 700;
 }
@@ -125,12 +125,12 @@ main {
 }
 
 .input-group:focus-within {
-    outline: 4px solid var(--primary-100);
+    outline: 4px solid var(--primary-200);
 }
 
 .search-pokemon-input {
     background-color: var(--neutral-200);
-    color: var(--neutral-400);
+    color: var(--neutral-500);
     font-size: 1rem;
     padding: .35rem 1rem;
     border-left: none;
@@ -142,13 +142,13 @@ main {
 
 .search-pokemon-label {
     padding-inline: .25rem;
-    color: var(--neutral-400);
+    color: var(--neutral-500);
     height: 100%;
     margin-left: .25rem;
 }
 
 .search-icon {
-    color: var(--neutral-400);
+    color: var(--neutral-500);
 }
 
 .icon {
@@ -179,12 +179,9 @@ main {
     width: max-content;
 }
 
-
-
 /*--------------------*/
 /*Utility classes     */
 /*--------------------*/
-
 .container {
     max-width: min(100% - 4rem, 60rem);
     margin-inline: auto;
@@ -206,7 +203,7 @@ main {
     --dropdown-spacing: 1rem;
     --dropdown-animation-time: 500ms;
     background-color: var(--neutral-200);
-    color: var(--neutral-500);
+    color: var(--neutral-600);
     padding-top: var(--dropdown-spacing);
     border-radius: 1rem;
     min-width: 35ch;
@@ -260,15 +257,14 @@ main {
 }
 
 .dropdown-item:hover {
-    color: var(--primary-100);
+    color: var(--primary-200);
     background-color: var(--neutral-400);
 }
 
 /*Card */
-
 .card {
     --card-spacing: 2rem;
-    background-color: var(--primary-300);
+    background-color: var(--primary-400);
     border-radius: 2rem;
 }
 
@@ -312,7 +308,6 @@ main {
 }
 
 /*Info card*/
-
 .info-card {
     --info-card-animation-duration: 250ms;
     position: fixed;
@@ -359,7 +354,6 @@ main {
 }
 
 /*close-button*/
-
 .close-button {
     cursor: pointer;
     position: absolute;
@@ -368,11 +362,10 @@ main {
 }
 
 .close-button:hover svg {
-    color: var(--primary-100);
+    color: var(--primary-200);
 }
 
 /* Error card */
-
 .error-card {
     position: fixed;
     top: min(5%, 1% + 1vw);
@@ -395,10 +388,6 @@ main {
     transform: scale(1);
 }
 
-/* .error-card[data-animation-end="true"] {
-    transform: translateX(-50%);
-} */
-
 .error-card-header h2 {
     width: 100%;
 }
@@ -408,7 +397,6 @@ main {
 
 
 /*Measurements */
-
 .measurements {
     display: flex;
     font-size: .9rem;
@@ -424,7 +412,6 @@ main {
 
 
 /*Stats */
-
 .stats {
     display: flex;
     flex-direction: column;
@@ -517,10 +504,9 @@ main {
 
 
 /*Button*/
-
 .button {
     color: var(--neutral-100);
-    background-color: var(--primary-100);
+    background-color: var(--primary-200);
     font-weight: 700;
     padding: .25rem .75rem;
     border: none;
@@ -530,11 +516,10 @@ main {
 }
 
 .button:hover {
-    background-color: var(--primary-200);
+    background-color: var(--primary-300);
 }
 
 /*Type badges*/
-
 .type-badge {
     font-size: .875rem;
     padding: .25rem .75rem;

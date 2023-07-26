@@ -1,5 +1,6 @@
 // localStorage.clear()
 import { displayHomePagePokemon } from "./DOM/homePagePokemon/displayHomePagePokemon.js";
+import { displayHomePagePokemonByGeneration } from "./DOM/homePagePokemon/displayHomePagePokemonByGeneration.js";
 import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokemon.js";
 import { loadNewPokemon } from "./DOM/homePagePokemon/loadNewHomePagePokemon.js";
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
@@ -23,3 +24,4 @@ errorCloseButton.addEventListener("click", toggleErrorCard);
 
 const generationDropdownWrapper = document.querySelector(".dropdown-wrapper");
 generationDropdownWrapper.addEventListener("click", toggleDropdown);
+generationDropdownWrapper.addEventListener("click", displayHomePagePokemonByGeneration);
