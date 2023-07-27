@@ -1,5 +1,4 @@
 - Add a built-in hint for searching pokemon (add displaying pokemon from the search)
-- Add filtering pokemon by generation (with json file with all pokemon from each generation)
 - Add feature showing/dissapering cards that aren't on the screen
 - Add pokemon description
 - Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)

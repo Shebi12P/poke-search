@@ -1,49 +1,44 @@
 import { populateInfoCard } from "./populateInfoCard.js";
 import { wasPokemonSearchedPreviousTime } from "../searchPokemon/wasPokemonSearchedPreviousTime.js";
+import { toggleOverlay } from "../overlay/toggleOverlay.js";
 
 export const toggleInfoCard = (event, pokemonId) => {
     const milisecondDelay = 250;
     const pokemonInfoCard = document.querySelector(".info-card");
 
-    // if(wasPokemonSearchedPreviousTime(pokemonId)) {
-    //     console.log("Już odszukano")
-    //     setTimeout(() => {
-    //         pokemonInfoCard.setAttribute("aria-hidden", "false");
-    //     }, milisecondDelay);
-
-    //     return;
-    // }
-    
     if(event.type === "submit") {
-        if(!wasPokemonSearchedPreviousTime(pokemonId)){
-            populateInfoCard(pokemonId);
-            console.log("Nie odszkkano submit")  
-        } 
+        toggleOverlay();
+        if(wasPokemonSearchedPreviousTime(pokemonId)) return;
         
+        populateInfoCard(pokemonId);
         setTimeout(() => {
             pokemonInfoCard.setAttribute("aria-hidden", "false");
+            toggleOverlay();
+            return;
         }, milisecondDelay);
     }
 
     const clickedObject = event.target;
-    const isShowMoreButtonClicked = clickedObject.classList.contains("show-more-info");
-    const isCloseButtonClicked = clickedObject.classList.contains("close-button");
-    const isCloseButtonChildrenClicked = clickedObject.getAttribute("data-close-button-child");
+    const wasShowMoreInfoButtonClicked = clickedObject.classList.contains("show-more-info");
+    const wasCloseButtonClicked = clickedObject.classList.contains("close-button")
+        || clickedObject.classList.contains("close-button-child");
     
-    if(isShowMoreButtonClicked) {
+    if(wasShowMoreInfoButtonClicked) {
+        toggleOverlay();
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
-        if(!wasPokemonSearchedPreviousTime(pokemonId)) {
-            populateInfoCard(pokemonId);
-            console.log("Nie odszkkano click")
-        }
 
+        if(wasPokemonSearchedPreviousTime(pokemonId)) return;
+    
+        populateInfoCard(pokemonId);
         setTimeout(() => {
             pokemonInfoCard.setAttribute("aria-hidden", "false");
-            return;
+            toggleOverlay();
         }, milisecondDelay);
     }
-    
-    if(isCloseButtonClicked || isCloseButtonChildrenClicked) {
-        pokemonInfoCard.setAttribute("aria-hidden", "true");
+
+    if(wasCloseButtonClicked) {
+        setTimeout(() => {
+            pokemonInfoCard.setAttribute("aria-hidden", "true");
+        }, milisecondDelay);
     }
 }

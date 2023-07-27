@@ -73,7 +73,7 @@ body {
     line-height: 1.6;
     background-color: var(--primary-500);
     color: var(--neutral-200);
-    /* position: relative; */
+    position: relative;
 
 }
 
@@ -223,6 +223,8 @@ main {
     flex-direction: column;
     overflow: hidden;
     display: grid;
+    overflow-y: scroll;
+    max-height: 15rem;
     transition: grid-template-rows var(--dropdown-animation-time);
 }
 
@@ -250,10 +252,12 @@ main {
     overflow: hidden;
     padding-inline: var(--dropdown-spacing);
     transition: padding-block var(--dropdown-animation-time);
+    display: flex;
+    align-items: center;
 }
 
 .dropdown[aria-expanded="true"] .dropdown-item {
-    padding-block: var(--dropdown-spacing);
+    padding-block: calc(var(--dropdown-spacing) * 2);
 }
 
 .dropdown-item:hover {
@@ -482,11 +486,11 @@ main {
 
 /*Overlay*/
 
-/* .overlay {
-    background-color: black;
+.overlay {
+    background-color: hsl(0, 0%, 0%, .5);
     position: absolute;
     inset: 0;
-    cursor: pointer;
+    max-width: 100vw;
 }
 
 .overlay[aria-hidden="true"] {
@@ -496,11 +500,53 @@ main {
 }
 
 .overlay[aria-hidden="false"] {
-    opacity: .5;
+    opacity: 1;
     transform-origin: center;
-    z-index: 5;
+    z-index: 20;
     isolation: isolate;
-} */
+}
+
+.pokeball-icon {
+    max-width: 20rem;
+    max-height: 20rem;
+    opacity: 1;
+    isolation: isolate;
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    left: 40%;
+}
+
+.overlay[aria-hidden="false"] .pokeball-icon {
+    animation: spin 1.5s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pokeball-icon-outline {
+    fill:hsl(0, 0%, 22%);
+}
+
+.pokeball-icon-button {
+    fill:var(--neutral-100);
+}
+
+.pokeball-icon-bottom {
+    fill:hsl(0, 20%, 99%);
+}
+
+.pokeball-icon-top {
+    fill: hsl(0, 84%, 59%);
+}
+
 
 
 /*Button*/

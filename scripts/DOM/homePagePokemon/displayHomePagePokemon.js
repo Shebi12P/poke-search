@@ -7,11 +7,15 @@ import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
+import { toggleOverlay } from "../overlay/toggleOverlay.js";
 
-export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {    
+
+export const displayHomePagePokemon = async (lastPokemonCardId = 0) => { 
     if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID) {
         return;
     }
+
+    toggleOverlay();
     
     const cardList = document.querySelector(".card-list");
 
@@ -23,7 +27,6 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
         let card = "";
         let pokemon = {};
         let pokemonId = i+1;
-        console.log(pokemonId);
         let pokemonFromCache = false;
 
         if(isPokemonCashed(pokemonId)) {
@@ -54,4 +57,6 @@ export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
         const listItem = `<li class="card-container">${pokemonCard}</li>`;
         cardList.insertAdjacentHTML("beforeend", listItem);
     })
+    
+    toggleOverlay();
 }

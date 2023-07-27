@@ -6,7 +6,9 @@ import { loadNewPokemon } from "./DOM/homePagePokemon/loadNewHomePagePokemon.js"
 import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
 import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
+// import { toggleOverlay } from "./DOM/overlay/toggleOverlay.js";
 
+// toggleOverlay();
 await displayHomePagePokemon();
 
 const seeMorePokemonObserver = new IntersectionObserver(loadNewPokemon, { rootMargin: "50px"});
