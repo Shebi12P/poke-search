@@ -1,14 +1,23 @@
 import { getLastPokemonCardId } from "../../utils/getLastPokemonCardId.js";
 import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 import { handlePokemonVisibility } from "../../utils/handlePokemonVisibility.js";
+import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.js";
 
 // const pokemonVisibilityObserver = new IntersectionObserver(handlePokemonVisibility);
-export const loadNewPokemon = async (seeMorePokemonElement) => {
-    const isIntersecting = seeMorePokemonElement[0].isIntersecting;
+export const loadNewPokemon = async (entries) => {
+    let lastPokemonCard = entries[0];
+    const isLastPokemonCardIntersecting = lastPokemonCard.isIntersecting;
 
-    if(isIntersecting) { 
+    if(isLastPokemonCardIntersecting) {
+        loadNewPokemonObserver.unobserve(lastPokemonCard.target);
         const lastPokemonCardId = getLastPokemonCardId();
         await displayHomePagePokemon(lastPokemonCardId);
+        
+        const cardList = document.querySelector(".card-list");
+        const newLastCard = cardList.lastChild;
+        // const newLastCard = document.querySelector(`.card[data-pokemon-id=${lastPokemonCardId}]`);
+        // console.log(newLastCard);
+        loadNewPokemonObserver.observe(newLastCard);
     }
 
     // let pokemonCards = document.querySelectorAll(".card-container");

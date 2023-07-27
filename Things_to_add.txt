@@ -3,4 +3,3 @@
 - Add pokemon description
 - Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)
 = Add showing pokemon moves (optional)
-- Add loaders
