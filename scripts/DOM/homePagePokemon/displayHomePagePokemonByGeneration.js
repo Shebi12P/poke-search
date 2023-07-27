@@ -1,4 +1,5 @@
 import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
+import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.js";
 
 export const displayHomePagePokemonByGeneration = async (event) => {
     const clickedObject = event.target;
@@ -20,4 +21,7 @@ export const displayHomePagePokemonByGeneration = async (event) => {
 
     const firstPokemonIdToGenerate = firstPokemonIdInGeneration - 1;
     await displayHomePagePokemon(firstPokemonIdToGenerate);
+
+    const lastPokemonCard = pokemonCardList.lastChild;
+    loadNewPokemonObserver.observe(lastPokemonCard);
 }

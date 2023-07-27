@@ -9,7 +9,6 @@ import { loadNewPokemonObserver } from "./observers/loadNewPokemonObserver.js";
 
 await displayHomePagePokemon();
 
-// const seeMorePokemonObserver = new IntersectionObserver(loadNewPokemon, { rootMargin: "50px"});
 const lastPokemonCardContainer = document.querySelector(".card-list").lastChild;
 const lastPokemonCard = lastPokemonCardContainer.firstChild;
 loadNewPokemonObserver.observe(lastPokemonCard);

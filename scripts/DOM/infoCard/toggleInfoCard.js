@@ -8,6 +8,7 @@ export const toggleInfoCard = (event, pokemonId) => {
 
     if(event.type === "submit") {
         toggleOverlay();
+        
         if(wasPokemonSearchedPreviousTime(pokemonId)) return;
         
         populateInfoCard(pokemonId);
@@ -25,6 +26,7 @@ export const toggleInfoCard = (event, pokemonId) => {
     
     if(wasShowMoreInfoButtonClicked) {
         toggleOverlay();
+        
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
 
         if(wasPokemonSearchedPreviousTime(pokemonId)) return;
