@@ -99,6 +99,7 @@ main {
     flex-direction: column;
     gap: 10rem;
 }
+
 /*------------------*/
 /*Main header       */
 /*------------------*/
@@ -122,10 +123,24 @@ main {
     --input-border-radius: 2rem;
     background-color: var(--neutral-200);
     border-radius: var(--input-border-radius);
+    margin-bottom: 1rem;
 }
 
 .input-group:focus-within {
     outline: 4px solid var(--primary-200);
+}
+
+.input-group[data-error="true"] {
+    outline-color: hsl(var(--hp));
+}
+
+.input-group[data-error="true"]:focus-within  {
+    outline-color: hsl(var(--hp));
+    outline: 4px solid hsl(var(--hp));
+}
+
+.input-group[data-error="true"] .search-pokemon-input {
+    color: hsl(var(--hp));
 }
 
 .search-pokemon-input {
@@ -145,6 +160,19 @@ main {
     color: var(--neutral-500);
     height: 100%;
     margin-left: .25rem;
+}
+
+.search-pokemon-message {
+    position: absolute;
+    color: hsl(var(--hp));
+}
+
+.search-pokemon-message[aria-hidden="false"] {
+    opacity: 1;
+}
+
+.search-pokemon-message[aria-hidden="true"] {
+    opacity: 0;
 }
 
 .search-icon {

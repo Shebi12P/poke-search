@@ -9,7 +9,15 @@ export const toggleInfoCard = (event, pokemonId) => {
     if(event.type === "submit") {
         toggleOverlay();
         
-        if(wasPokemonSearchedPreviousTime(pokemonId)) return;
+        if(wasPokemonSearchedPreviousTime(pokemonId)) {
+            setTimeout(() => {
+                pokemonInfoCard.setAttribute("aria-hidden", "false");
+                toggleOverlay();
+                return;
+            }, milisecondDelay);
+
+            toggleOverlay();
+        }
         
         populateInfoCard(pokemonId);
         setTimeout(() => {
@@ -29,7 +37,12 @@ export const toggleInfoCard = (event, pokemonId) => {
         
         pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
 
-        if(wasPokemonSearchedPreviousTime(pokemonId)) return;
+        if(wasPokemonSearchedPreviousTime(pokemonId)) {
+            setTimeout(() => {
+                pokemonInfoCard.setAttribute("aria-hidden", "false");
+                return;
+            }, milisecondDelay);
+        }
     
         populateInfoCard(pokemonId);
         setTimeout(() => {

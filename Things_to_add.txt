@@ -3,3 +3,5 @@
 - Add pokemon description
 - Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)
 = Add showing pokemon moves (optional)
+- Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
+- Work with showing pokemon that have more than 1 form

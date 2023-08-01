@@ -5,10 +5,22 @@ import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonWithAlteredNames } from "./getPokemonWithAlteredNames.js";
+import { validateSearchPokemon } from "./validate/validateSearchPokemon.js";
+import { changeSearchStyle } from "./changeSearchStyle.js";
+import { changeSearchErrorMessage } from "./changeSearchErrorMessage.js";
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
+
     let searchedPokemon = document.querySelector(".search-pokemon-input").value;
+    searchedPokemon = searchedPokemon.trim();
+    const [hasErrorOccured, errorMessage] = validateSearchPokemon(searchedPokemon);
+    
+    changeSearchStyle(hasErrorOccured);
+    changeSearchErrorMessage(errorMessage);
+
+    if(hasErrorOccured) return;
+
     event.currentTarget.reset();
     let pokemonId;
     

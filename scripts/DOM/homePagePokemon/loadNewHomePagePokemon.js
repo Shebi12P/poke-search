@@ -15,8 +15,6 @@ export const loadNewPokemon = async (entries) => {
         
         const cardList = document.querySelector(".card-list");
         const newLastCard = cardList.lastChild;
-        // const newLastCard = document.querySelector(`.card[data-pokemon-id=${lastPokemonCardId}]`);
-        // console.log(newLastCard);
         loadNewPokemonObserver.observe(newLastCard);
     }
 

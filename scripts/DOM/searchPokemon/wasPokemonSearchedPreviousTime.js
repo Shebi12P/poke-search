@@ -7,6 +7,5 @@ export const wasPokemonSearchedPreviousTime = (pokemon) => {
     wasSearchedPreviousTime = lastSearchedPokemonName === pokemon
         || lastSearchedPokemonId === pokemon;
 
-        console.log(wasSearchedPreviousTime);
     return wasSearchedPreviousTime;
 }

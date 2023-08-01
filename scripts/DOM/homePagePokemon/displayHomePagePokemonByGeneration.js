@@ -3,13 +3,15 @@ import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.j
 
 export const displayHomePagePokemonByGeneration = async (event) => {
     const clickedObject = event.target;
+    const wasDropdownItemClicked = clickedObject.classList.contains("dropdown-item");
 
-    if(!clickedObject.classList.contains("dropdown-item")) return;
+    if(!wasDropdownItemClicked) return;
 
     const pokemonCardList = document.querySelector(".card-list");
     const firstGeneratedPokemonId = parseInt(
         pokemonCardList.getAttribute("data-first-generated-pokemon-id")
     );
+
     const firstPokemonIdInGeneration = parseInt(
         clickedObject.getAttribute("data-first-pokemon-id-in-generation")
     );
