@@ -122,13 +122,18 @@
         <header class="main-header">
             <p class="logo">Poke-search</p>
             <form class="search-pokemon-form">
-                <div class="input-group" data-error="false">
+                <div class="input-group" data-error="false" aria-invalid="false">
                     <label class="search-pokemon-label" for="search">
                         <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" stroke="currentColor">
                             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
                         </svg>
                     </label>
                     <input class="search-pokemon-input" id="search" type="search" placeholder="Search for a pokemon...">
+                    <ul class="search-pokemon-hint-list">
+                        <li class="search-pokemon-hint">Pikachu</li>
+                        <li class="search-pokemon-hint">Charizard</li>
+                        <li class="search-pokemon-hint">Arceus</li>
+                    </ul>
                 </div>
                 <p class="search-pokemon-message" aria-hidden="true"></p>
             </form>
@@ -153,11 +158,6 @@
                     <li class="dropdown-item" data-first-pokemon-id-in-generation="906">Generation 9</li>
                 </ul>
             </div>
-
-            <!-- <div class="initial-error-message" aria-hidden="true">
-                <h3>Something went wrong</h3>
-                <p>Try again later</p>
-            </div> -->
             <ul class="card-list" role="list" data-first-generated-pokemon-id="1">
             </ul>
             <div class="see-more-pokemon" aria-hidden="true">

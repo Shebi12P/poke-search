@@ -124,6 +124,9 @@ main {
     background-color: var(--neutral-200);
     border-radius: var(--input-border-radius);
     margin-bottom: 1rem;
+    position: relative;
+    z-index: 10;
+    isolation: isolate;
 }
 
 .input-group:focus-within {
@@ -160,6 +163,50 @@ main {
     color: var(--neutral-500);
     height: 100%;
     margin-left: .25rem;
+}
+
+.search-pokemon-hint-list {
+    position: absolute;
+    top: 1.25rem;
+    padding-top: 1.25rem;
+    z-index: -1;
+    list-style: none;
+    color: var(--neutral-600);
+    background-color: var(--neutral-200);
+    width: 100%;
+    border-bottom-left-radius: var(--input-border-radius);
+    border-bottom-right-radius: var(--input-border-radius);
+    font-size: 1rem;
+    
+    overflow: hidden;
+    display: grid;
+    /* overflow-y: scroll; */
+    grid-template-rows: repeat(3, 0fr);
+    transition: grid-template-rows 500ms;
+}
+
+.search-pokemon-hint-list[aria-expanded="false"] {
+    grid-template-rows: repeat(3, 0fr);
+}
+
+.search-pokemon-hint-list[aria-expanded="true"] {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.search-pokemon-hint {
+    cursor: pointer;
+    padding-inline: .75rem;
+    overflow: hidden;
+    transition: padding-block 500ms;
+}
+
+.search-pokemon-hint-list[aria-expanded="true"] .search-pokemon-hint {
+    padding-block: 1rem;
+}
+
+.search-pokemon-hint:hover {
+    color: var(--primary-200);
+    background-color: var(--neutral-400);
 }
 
 .search-pokemon-message {
@@ -247,17 +294,11 @@ main {
 
 .dropdown {
     list-style-type: none;
-    display: flex;
-    flex-direction: column;
     overflow: hidden;
     display: grid;
     overflow-y: scroll;
     max-height: 15rem;
     transition: grid-template-rows var(--dropdown-animation-time);
-}
-
-.dropdown {
-    grid-template-rows: repeat(9, 0fr);
 }
 
 .dropdown[aria-expanded="false"] {
@@ -346,7 +387,7 @@ main {
     top: min(5%, 1% + 1vw);
     left: 25%;
     right: 25%;
-    z-index: 10;
+    z-index: 15;
     isolation: isolate;
     overflow-y: auto;
     max-height: 35rem;
@@ -403,7 +444,7 @@ main {
     top: min(5%, 1% + 1vw);
     left: 25%;
     right: 25%;
-    z-index: 10;
+    z-index: 15;
     isolation: isolate;
     max-width: 40rem;
 }

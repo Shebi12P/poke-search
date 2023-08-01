@@ -5,3 +5,6 @@
 = Add showing pokemon moves (optional)
 - Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
 - Work with showing pokemon that have more than 1 form
+- Initial error message /optional
+- Sort the styles
+- Delete findPokemonIdFromCache
