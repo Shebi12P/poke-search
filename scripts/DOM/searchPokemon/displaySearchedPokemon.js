@@ -14,7 +14,7 @@ export const displaySearchedPokemon = async (event) => {
 
     let searchedPokemon = document.querySelector(".search-pokemon-input").value;
     searchedPokemon = searchedPokemon.trim();
-    const [hasErrorOccured, errorMessage] = validateSearchPokemon(searchedPokemon);
+    const [ hasErrorOccured, errorMessage ] = validateSearchPokemon(searchedPokemon);
     
     changeSearchStyle(hasErrorOccured);
     changeSearchErrorMessage(errorMessage);

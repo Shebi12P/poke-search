@@ -1,5 +1,10 @@
 export const checkForNumbersAndLettersBesideEachOther = (text) => {
+    const whiteListPokemonNames = ["porygon2", "zygarde-50"];
     let hasNumbersAndLettersBesideEachOther = false;
+
+    if(whiteListPokemonNames.includes(text)){
+        return false;
+    }
     
     const numberAndLetterBesideEachOtherPattern = /\d+\D+/;
     const letterAndNumberBesideEachOtherPattern = /\D+\d+/;
