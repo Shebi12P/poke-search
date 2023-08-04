@@ -4,7 +4,7 @@ import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonWithAlteredNames } from "./getPokemonWithAlteredNames.js";
-import { validateSearchPokemon } from "./validate/validateSearchPokemon.js";
+import { validateSearchPokemon } from "./validateSearchPokemon.js";
 import { changeSearchStyle } from "./changeSearchStyle.js";
 import { changeSearchErrorMessage } from "./changeSearchErrorMessage.js";
 import { changeInputValidation } from "./changeInputvalidation.js";

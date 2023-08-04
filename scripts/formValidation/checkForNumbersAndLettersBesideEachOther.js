@@ -1,8 +1,8 @@
-export const checkForNumbersAndLettersBesideEachOther = (text) => {
+export const checkForNumbersAndLettersBesideEachOther = (text, exeptionList) => {
     const whiteListPokemonNames = ["porygon2", "zygarde-50"];
     let hasNumbersAndLettersBesideEachOther = false;
 
-    if(whiteListPokemonNames.includes(text)){
+    if(exeptionList.includes(text)){
         return false;
     }
     

@@ -1,5 +1,6 @@
 import { allPokemonNames } from "../../variables/allPokemonNames.js";
-import { validateSearchPokemon } from "../searchPokemon/validate/validateSearchPokemon.js";
+// import { validateSearchPokemon } from "..//validation/validateSearchPokemon.js";
+// import { validateSearchPokemon } from "../../validation/validateSearchPokemon.js";
 // import { changeInputValidation } from "../searchPokemon/changeInputvalidation.js";
 // import { changeSearchStyle } from "../searchPokemon/changeSearchStyle.js";
 // import { changeSearchErrorMessage } from "../searchPokemon/changeSearchErrorMessage.js";

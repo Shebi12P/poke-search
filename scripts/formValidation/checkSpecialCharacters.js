@@ -11,6 +11,5 @@ export const checkForSpecialCharacters = (text) => {
         hasSpecialCharacters = false;
     }
 
-    console.log(hasSpecialCharacters);
     return hasSpecialCharacters;
 }

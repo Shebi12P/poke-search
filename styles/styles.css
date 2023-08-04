@@ -129,6 +129,10 @@ main {
     padding-block: .35rem;
 }
 
+.input-group[data-overflow="true"] {
+    overflow: hidden;
+}
+
 .input-group:focus-within {
     outline: 4px solid var(--primary-200);
 }
@@ -150,7 +154,7 @@ main {
     background-color: var(--neutral-200);
     color: var(--neutral-500);
     font-size: 1rem;
-    padding: .35rem 1rem;
+    padding: .25rem 1rem;
     border-radius: var(--input-border-radius);
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
@@ -172,7 +176,7 @@ main {
 
 .search-pokemon-hint-list {
     position: absolute;
-    top: 1.25rem;
+    top: 1.55rem;
     padding-top: 1.25rem;
     z-index: -1;
     list-style: none;
