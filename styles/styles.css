@@ -13,7 +13,6 @@
     --neutral-500: hsl(0, 0%, 40%);
     --neutral-600: hsl(0, 0%, 10%);
 
-
     /*Type badge colors*/
     --normal: hsl(60, 22%, 56%);
     --fire: hsl(25, 86%, 56%);
@@ -127,6 +126,7 @@ main {
     position: relative;
     z-index: 10;
     isolation: isolate;
+    padding-block: .35rem;
 }
 
 .input-group:focus-within {
@@ -151,18 +151,23 @@ main {
     color: var(--neutral-500);
     font-size: 1rem;
     padding: .35rem 1rem;
-    border-left: none;
     border-radius: var(--input-border-radius);
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
     border: none;
 }
 
+.search-pokemon-input:focus {
+    outline: none;
+}
+
 .search-pokemon-label {
-    padding-inline: .25rem;
-    color: var(--neutral-500);
-    height: 100%;
-    margin-left: .25rem;
+    padding-inline: 1rem;
+    padding-bottom: .7rem;
+    background-color: var(--neutral-200);
+    border-top-left-radius: 1rem;
+    position: relative;
+    z-index: 10;
 }
 
 .search-pokemon-hint-list {
@@ -181,7 +186,6 @@ main {
     
     display: grid;
     overflow-y: scroll;
-    grid-template-rows: repeat(3, 0fr);
     transition: grid-template-rows 500ms;
 }
 
@@ -196,7 +200,6 @@ main {
 .search-pokemon-hint {
     cursor: pointer;
     padding-inline: .75rem;
-    overflow: hidden;
     transition: padding-block 500ms;
 }
 
@@ -262,17 +265,6 @@ main {
     margin-inline: auto;
     position: relative;
 }
-
-/* 
-.initial-error-message[aria-hidden="false"] {
-    opacity: 1;
-    font-size: 2rem;
-    text-align: center;
-}
-
-.initial-error-message[aria-hidden="true"] {
-    opacity: 0;
-} */
 
 .dropdown-wrapper {
     --dropdown-spacing: 1rem;
@@ -616,8 +608,6 @@ main {
 .pokeball-icon-top {
     fill: hsl(0, 84%, 59%);
 }
-
-
 
 /*Button*/
 .button {

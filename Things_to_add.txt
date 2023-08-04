@@ -7,4 +7,5 @@
 - Work with showing pokemon that have more than 1 form
 - Initial error message /optional
 - Sort the styles
-- Delete findPokemonIdFromCache
+- Delete findPokemonIdFromCache (?)
+- Fix sty ling on input group and hint list
