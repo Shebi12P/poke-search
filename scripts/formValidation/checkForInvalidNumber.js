@@ -1,11 +1,11 @@
 export const checkForInvalidNumber = (number, minRange, maxRange) => {
-    let isValidNumber = false;
+    let isInvalidValidNumber = true;
 
-    if(isNaN(number)) return isValidNumber;
+    if(isNaN(number)) return isInvalidValidNumber;
 
-    if(number < minRange || number > maxRange) {
-        isValidNumber = true;
+    if(number >= minRange && number <= maxRange) {
+        isInvalidValidNumber = false;
     }
 
-    return isValidNumber;
+    return isInvalidValidNumber;
 }
