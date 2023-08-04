@@ -1,8 +1,7 @@
 export const checkForNumbersAndLettersBesideEachOther = (text, exeptionList) => {
-    const whiteListPokemonNames = ["porygon2", "zygarde-50"];
     let hasNumbersAndLettersBesideEachOther = false;
 
-    if(exeptionList.includes(text)){
+    if(exeptionList.includes(text) || !isNaN(text)){
         return false;
     }
     
