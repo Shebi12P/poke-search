@@ -129,7 +129,7 @@ main {
     padding-block: .35rem;
 }
 
-.input-group[data-overflow="true"] {
+.input-group[data-overflow="false"] {
     overflow: hidden;
 }
 
@@ -214,6 +214,12 @@ main {
 .search-pokemon-hint:hover {
     color: var(--primary-200);
     background-color: var(--neutral-400);
+}
+
+.search-pokemon-hint[data-not-found]:hover {
+    color: inherit;
+    background-color: inherit;
+    cursor: default;
 }
 
 .search-pokemon-message {

@@ -11,7 +11,7 @@ export const validateSearchPokemon = (searchedPokemon) => {
     const MIN_RANGE = 1;
     const MAX_RANGE = LAST_BASE_FORM_POKEMON_ID;
     const WHITE_LIST_POKEMON_NAMES = ["porygon2", "zygarde-50"];
-    const whiteListPattern = /-/;
+    const WHITE_LIST_PATTERN = /-/;
     
     if(checkForNumbersAndLettersBesideEachOther(searchedPokemon, WHITE_LIST_POKEMON_NAMES)) {
         hasErrorOccured = true;
@@ -20,7 +20,7 @@ export const validateSearchPokemon = (searchedPokemon) => {
         return [hasErrorOccured, errorMessage];
     }
     
-    if(checkForSpecialCharacters(searchedPokemon, whiteListPattern)) {
+    if(checkForSpecialCharacters(searchedPokemon, WHITE_LIST_PATTERN)) {
         hasErrorOccured = true;
         errorMessage = `Input accepts only "-" as a special character.`;
 

@@ -1,7 +1,7 @@
 export const isEmpty = (text) => {
     let isEmpty = false;
 
-    if(text === "") {
+    if(text === "" || text.legth === 0) {
         isEmpty = true;
     }
 

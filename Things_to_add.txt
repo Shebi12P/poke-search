@@ -8,4 +8,4 @@
 - Initial error message /optional
 - Sort the styles
 - Delete findPokemonIdFromCache (?)
-- Fix sty ling on input group and hint list
+- Fix sty ling on input group and hint list (?)
