@@ -187,10 +187,10 @@ main {
     border-bottom-right-radius: var(--input-border-radius);
     font-size: 1rem;
     
-    max-height: 10rem;
-    display: grid;
+    max-height: 50rem;
     overflow-y: scroll;
-    transition: grid-template-rows 500ms;
+    display: grid;
+    transition: grid-template-rows 5s;
 }
 
 .search-pokemon-hint-list[aria-expanded="false"] {
@@ -298,9 +298,9 @@ main {
 .dropdown {
     list-style-type: none;
     overflow: hidden;
-    display: grid;
-    overflow-y: scroll;
     max-height: 15rem;
+    overflow-y: scroll;
+    display: grid;
     transition: grid-template-rows var(--dropdown-animation-time);
 }
 
@@ -739,11 +739,15 @@ main {
     .info-card {
         max-width: max-content;
     }
+
     .info-card-sprites-wrapper {
         grid-template-columns: repeat(1, 1fr);
     }
 
     .dropdown-wrapper {
         right: 22.5%;
+        
+        /*Just to have a bit more spacing from pokemon search form*/
+        top: .75%;
     }
 }

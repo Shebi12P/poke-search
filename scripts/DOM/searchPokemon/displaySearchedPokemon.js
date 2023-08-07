@@ -3,7 +3,6 @@ import { cachePokemon } from "../../cache/cachePokemon.js";
 import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
-import { getPokemonWithAlteredNames } from "./getPokemonWithAlteredNames.js";
 import { validateSearchPokemon } from "./validation/validateSearchPokemon.js";
 import { changeSearchStyle } from "./changeSearchStyle.js";
 import { changeSearchErrorMessage } from "./changeSearchErrorMessage.js";
@@ -25,7 +24,6 @@ export const displaySearchedPokemon = async (event) => {
 
     if(hasErrorOccured) return;
 
-    event.currentTarget.reset();
     let pokemonId;
     
     if(isPokemonCashed(searchedPokemon)) {

@@ -13,6 +13,14 @@ export const validateSearchPokemon = (searchedPokemon) => {
     const WHITE_LIST_POKEMON_NAMES = ["porygon2", "zygarde-50"];
     const WHITE_LIST_PATTERN = /-/;
     
+    
+    if(isEmpty(searchedPokemon)) {
+        hasErrorOccured = true;
+        errorMessage = "Input can't be empty.";
+
+        return [hasErrorOccured, errorMessage];
+    }
+    
     if(checkForNumbersAndLettersBesideEachOther(searchedPokemon, WHITE_LIST_POKEMON_NAMES)) {
         hasErrorOccured = true;
         errorMessage = "Input accepts only numbers or pokemon names.";
@@ -38,13 +46,6 @@ export const validateSearchPokemon = (searchedPokemon) => {
     if(!checkIfPokemonExists(searchedPokemon)) {
         hasErrorOccured = true;
         errorMessage = "Pokemon doesn't exist. Check if you typed the name correctly.";
-
-        return [hasErrorOccured, errorMessage];
-    }
-
-    if(isEmpty(searchedPokemon)) {
-        hasErrorOccured = true;
-        errorMessage = "Input can't be empty.";
 
         return [hasErrorOccured, errorMessage];
     }

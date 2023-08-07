@@ -8,7 +8,6 @@ export const togglePokemonHintList = (hidePokemonHintList) => {
     searchPokemonHintList.setAttribute("aria-expanded", "false");
     searchPokemonHintList.innerHTML = "";
 
-
     if(hidePokemonHintList) {
         searchPokemonInputGroup.setAttribute("data-overflow", "false");
         return;

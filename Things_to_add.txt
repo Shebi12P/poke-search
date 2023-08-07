@@ -1,11 +1,7 @@
-- Add a built-in hint for searching pokemon (add displaying pokemon from the search)
 - Add feature showing/dissapering cards that aren't on the screen
 - Add pokemon description
 - Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)
-= Add showing pokemon moves (optional)
+- Add showing pokemon moves (optional)
 - Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
 - Work with showing pokemon that have more than 1 form
-- Initial error message /optional
 - Sort the styles
-- Delete findPokemonIdFromCache (?)
-- Fix sty ling on input group and hint list (?)

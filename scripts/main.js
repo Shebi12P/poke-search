@@ -8,16 +8,18 @@ import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
 import { loadNewPokemonObserver } from "./observers/loadNewPokemonObserver.js";
 import { createDebounce } from "./utils/debounce.js";
 import { togglePokemonHintList } from "./DOM/pokemonHintList/togglePokemonHintList.js";
-import { findPokemonFromInput } from "./DOM/pokemonHintList/findPokemonFromInput.js";
+import { searchPokemonFromHintList } from "./DOM/pokemonHintList/searchPokemonFromHintList.js";
 
 await displayHomePagePokemon();
 
-const lastPokemonCardContainer = document.querySelector(".card-list").lastChild;
+const cardList = document.querySelector(".card-list");
+const lastPokemonCardContainer = cardList.lastChild;
 const lastPokemonCard = lastPokemonCardContainer.firstChild;
 loadNewPokemonObserver.observe(lastPokemonCard);
+cardList.addEventListener("click", toggleInfoCard);
 
-const body = document.documentElement;
-body.addEventListener("click", toggleInfoCard);
+const infoCard = document.querySelector(".info-card");
+infoCard.addEventListener("click", toggleInfoCard);
 
 const searchPokemonForm = document.querySelector(".search-pokemon-form");
 searchPokemonForm.addEventListener("submit", displaySearchedPokemon);
@@ -36,5 +38,5 @@ searchPokemonInput.addEventListener("input", () => {
     }
 );
 
-// const searchPokemonHintList = document.querySelector(".search-pokemon-hint-list");
-// searchPokemonHintList.addEventListener("click", () => console.log());
+const searchPokemonHintList = document.querySelector(".search-pokemon-hint-list");
+searchPokemonHintList.addEventListener("click", searchPokemonFromHintList);
