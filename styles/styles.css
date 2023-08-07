@@ -183,11 +183,11 @@ main {
     color: var(--neutral-600);
     background-color: var(--neutral-200);
     width: 100%;
-    max-height: 10rem;
     border-bottom-left-radius: var(--input-border-radius);
     border-bottom-right-radius: var(--input-border-radius);
     font-size: 1rem;
     
+    max-height: 10rem;
     display: grid;
     overflow-y: scroll;
     transition: grid-template-rows 500ms;
@@ -262,6 +262,7 @@ main {
     display: flex;
     justify-content: center;
 }
+
 .see-more-button {
     margin-bottom: 2rem;
     width: max-content;
@@ -311,14 +312,6 @@ main {
     grid-template-rows: repeat(9, 1fr);
 }
 
-.dropdown-icon {
-    transition: transform var(--dropdown-animation-time);
-}
-
-.dropdown-icon[data-rotated="true"] {
-    transform: rotate(180deg);
-}
-
 .dropdown-item {
     overflow: hidden;
     padding-inline: var(--dropdown-spacing);
@@ -334,6 +327,14 @@ main {
 .dropdown-item:hover {
     color: var(--primary-200);
     background-color: var(--neutral-400);
+}
+
+.dropdown-icon {
+    transition: transform var(--dropdown-animation-time);
+}
+
+.dropdown-icon[data-rotated="true"] {
+    transform: rotate(180deg);
 }
 
 /*Card */

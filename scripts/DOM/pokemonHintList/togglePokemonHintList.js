@@ -1,15 +1,23 @@
 import { findPokemonFromInput } from "./findPokemonFromInput.js";
 import { populatePokemonHintList } from "./populatePokemonHintList.js";
 
-export const togglePokemonHintList = () => {
+export const togglePokemonHintList = (hidePokemonHintList) => {
     const searchPokemonHintList = document.querySelector(".search-pokemon-hint-list");
     const searchPokemonInputGroup = document.querySelector(".input-group");
     searchPokemonInputGroup.setAttribute("data-overflow", "true");
+    searchPokemonHintList.setAttribute("aria-expanded", "false");
+    searchPokemonHintList.innerHTML = "";
+
+
+    if(hidePokemonHintList) {
+        searchPokemonInputGroup.setAttribute("data-overflow", "false");
+        return;
+    }
+
 
     const searchedText = document.querySelector(".search-pokemon-input").value;
 
     if(searchedText.length === 0) {
-        searchPokemonHintList.innerHTML = "";
         searchPokemonInputGroup.setAttribute("data-overflow", "false");
         return;
     }
