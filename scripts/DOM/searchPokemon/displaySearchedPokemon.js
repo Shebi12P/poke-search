@@ -4,10 +4,8 @@ import { toggleInfoCard } from "../infoCard/toggleInfoCard.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { validateSearchPokemon } from "./validation/validateSearchPokemon.js";
-import { changeSearchStyle } from "./changeSearchStyle.js";
-import { changeSearchErrorMessage } from "./changeSearchErrorMessage.js";
-import { changeInputValidation } from "./changeInputValidation.js";
 import { togglePokemonHintList } from "../pokemonHintList/togglePokemonHintList.js";
+import { handleInputError } from "./handleInputError.js";
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
@@ -18,12 +16,11 @@ export const displaySearchedPokemon = async (event) => {
     const searchPokemonForm = document.querySelector(".search-pokemon-form");
     searchPokemonForm.reset();
     
-    const [ hasErrorOccured, errorMessage ] = validateSearchPokemon(searchedPokemon);
     const hidePokemonHintList = true;
     togglePokemonHintList(hidePokemonHintList);
-    changeSearchStyle(hasErrorOccured);
-    changeSearchErrorMessage(errorMessage);
-    changeInputValidation(hasErrorOccured);
+    
+    const [ hasErrorOccured, errorMessage ] = validateSearchPokemon(searchedPokemon);
+    handleInputError(hasErrorOccured, errorMessage);
 
     if(hasErrorOccured) return;
 

@@ -6,7 +6,7 @@ import { LAST_BASE_FORM_POKEMON_ID } from "../../../variables/lastBaseFormPokemo
 import { checkIfPokemonExists } from "./checkIfPokemonExists.js";
 
 export const validateSearchPokemon = (searchedPokemon) => {
-    let hasErrorOccured = false;
+    let hasErrorOccured = true;
     let errorMessage = "";
     const MIN_RANGE = 1;
     const MAX_RANGE = LAST_BASE_FORM_POKEMON_ID;
@@ -15,28 +15,24 @@ export const validateSearchPokemon = (searchedPokemon) => {
     
     
     if(isEmpty(searchedPokemon)) {
-        hasErrorOccured = true;
         errorMessage = "Input can't be empty.";
 
         return [hasErrorOccured, errorMessage];
     }
     
     if(checkForNumbersAndLettersBesideEachOther(searchedPokemon, WHITE_LIST_POKEMON_NAMES)) {
-        hasErrorOccured = true;
         errorMessage = "Input accepts only numbers or pokemon names.";
 
         return [hasErrorOccured, errorMessage];
     }
     
     if(checkForSpecialCharacters(searchedPokemon, WHITE_LIST_PATTERN)) {
-        hasErrorOccured = true;
         errorMessage = `Input accepts only "-" as a special character.`;
 
         return [hasErrorOccured, errorMessage];
     }
     
     if(!checkForNumberInRange(searchedPokemon, MIN_RANGE, MAX_RANGE) && !isNaN(searchedPokemon)) {
-        hasErrorOccured = true;
         errorMessage = `Input accepts numbers beetwen 1 and ${LAST_BASE_FORM_POKEMON_ID}.`;
 
         return [hasErrorOccured, errorMessage];
@@ -44,11 +40,12 @@ export const validateSearchPokemon = (searchedPokemon) => {
 
     
     if(!checkIfPokemonExists(searchedPokemon)) {
-        hasErrorOccured = true;
         errorMessage = "Pokemon doesn't exist. Check if you typed the name correctly.";
 
         return [hasErrorOccured, errorMessage];
     }
 
+    hasErrorOccured = false;
+    
     return [hasErrorOccured, errorMessage];
 }

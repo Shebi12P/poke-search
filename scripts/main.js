@@ -33,7 +33,7 @@ generationDropdownWrapper.addEventListener("click", displayHomePagePokemonByGene
 
 const searchPokemonInput = document.querySelector(".search-pokemon-input");
 searchPokemonInput.addEventListener("input", () => {
-        const delay = 500;
+        const delay = 1000;
         createDebounce(togglePokemonHintList, delay);
     }
 );
