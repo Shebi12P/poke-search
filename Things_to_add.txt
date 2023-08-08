@@ -1,7 +1,13 @@
 - Add feature showing/dissapering cards that aren't on the screen
 - Add pokemon description
-- Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching)
+- Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching
+    check: pokemon-species endpoint
+)
 - Add showing pokemon moves (optional)
-- Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
+- | Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
 - Work with showing pokemon that have more than 1 form
-- Sort the styles
+- | Sort the styles
+- Work with caching the pokemon sprites (look at the links to the sprites and not cache their url,
+    beacuse the url is the same but the only difference is the id of the pokemon in the url)
+- Work with the all pokemon names (order them correctly, work with allolan forms)
+- Add tabbing to pokemon hint list

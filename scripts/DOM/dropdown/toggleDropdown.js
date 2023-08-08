@@ -1,12 +1,15 @@
 export const toggleDropdown = (event) => {
-    // const clickedObject = event.target;
-    // if(clickedObject.classList.contains("dropdown-item")) return;
-    
-    const clickedDropdownContainer = event.currentTarget;
-    const dropdown = clickedDropdownContainer.querySelector(".dropdown");
-    const dropdowndIcon = clickedDropdownContainer.querySelector(".dropdown-icon");
+    const dropdownContainer = event.currentTarget;
+    const dropdown = dropdownContainer.querySelector(".dropdown");
+    const dropdowndIcon = dropdownContainer.querySelector(".dropdown-icon");
     const isExpanded = dropdown.getAttribute("aria-expanded");
     let expand = "false";
+
+    const wasDropdownItemClicked = event.target.classList.contains("dropdown-item");
+    if(wasDropdownItemClicked) {
+        const newDropdownContainerText = event.target.textContent;
+        dropdownContainer.querySelector("p").textContent = newDropdownContainerText;
+    }
 
     if(isExpanded === "false") expand = "true";
     const rotate = expand;
