@@ -16,10 +16,10 @@ const cardList = document.querySelector(".card-list");
 const lastPokemonCardContainer = cardList.lastChild;
 const lastPokemonCard = lastPokemonCardContainer.firstChild;
 loadNewPokemonObserver.observe(lastPokemonCard);
-cardList.addEventListener("click", toggleInfoCard);
 
 const infoCard = document.querySelector(".info-card");
 infoCard.addEventListener("click", toggleInfoCard);
+cardList.addEventListener("click", toggleInfoCard);
 
 const searchPokemonForm = document.querySelector(".search-pokemon-form");
 searchPokemonForm.addEventListener("submit", displaySearchedPokemon);

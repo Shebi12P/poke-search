@@ -1,10 +1,9 @@
 import { getLastPokemonCardId } from "../../utils/getLastPokemonCardId.js";
 import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 import { handlePokemonVisibility } from "../../utils/handlePokemonVisibility.js";
-import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.js";
 
 // const pokemonVisibilityObserver = new IntersectionObserver(handlePokemonVisibility);
-export const loadNewPokemon = async (entries) => {
+export const loadNewPokemon = async (entries, loadNewPokemonObserver) => {
     let lastPokemonCard = entries[0];
     const isLastPokemonCardIntersecting = lastPokemonCard.isIntersecting;
 
