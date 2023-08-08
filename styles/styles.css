@@ -258,6 +258,18 @@ main {
     top: 8rem;
 }
 
+.no-more-pokemon {
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.no-more-pokemon[aria-hidden="true"] {
+    display: none;
+}
+
 .see-more-button-wrapper {
     display: flex;
     justify-content: center;
@@ -305,11 +317,11 @@ main {
 }
 
 .dropdown[aria-expanded="false"] {
-    grid-template-rows: repeat(9, 0fr);
+    grid-template-rows: repeat(10, 0fr);
 }
 
 .dropdown[aria-expanded="true"] {
-    grid-template-rows: repeat(9, 1fr);
+    grid-template-rows: repeat(10, 1fr);
 }
 
 .dropdown-item {

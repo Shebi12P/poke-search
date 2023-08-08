@@ -10,16 +10,19 @@ import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCa
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
 
 
-export const displayHomePagePokemon = async (lastPokemonCardId = 0) => { 
-    if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID) {
-        return;
+export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
+    const lastPokemonIdInGeneration = 10;
+    if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID ||
+        lastPokemonCardId === lastPokemonIdInGeneration - 1) {
+            const noMorePokemonElement = document.querySelector(".no-more-pokemon");
+            noMorePokemonElement.setAttribute("aria-hidden", "false");
+            return;
     }
 
     toggleOverlay();
-    
     const cardList = document.querySelector(".card-list");
 
-    const pokemonPerRender = getPokemonAmountPerRender(lastPokemonCardId);
+    const pokemonPerRender = getPokemonAmountPerRender(lastPokemonCardId, lastPokemonIdInGeneration);
     let pokemonLimit = parseInt(lastPokemonCardId + pokemonPerRender);
     const pokemonCards = [];
     

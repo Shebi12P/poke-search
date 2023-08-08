@@ -130,10 +130,6 @@
                     </label>
                     <input class="search-pokemon-input" id="search" type="search" placeholder="Search for a pokemon...">
                     <ul class="search-pokemon-hint-list" aria-expanded="false">
-                        <li>Pikachu</li>
-                        <li>Pikachu</li>
-                        <li>Pikachu</li>
-                        <li>Pikachu</li>
                     </ul>
                 </div>
                 <p class="search-pokemon-message" aria-hidden="true"></p>
@@ -148,20 +144,22 @@
                     </svg>
                 </div>
                 <ul class="dropdown" role="list" aria-expanded="false">
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="1">Generation 1</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="152">Generation 2</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="252">Generation 3</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="387">Generation 4</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="495">Generation 5</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="650">Generation 6</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="722">Generation 7</li>
-                    <li class="dropdown-item" data-first-pokemon-id-in-generation="810">Generation 8</li>
+                    <li class="dropdown-item" data-all-pokemon data-first-pokemon-id-in-generation="1">All pokemon</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="1" last-pokemon-id-in-generation="151">Generation 1</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="152" last-pokemon-id-in-generation="251">Generation 2</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="252" last-pokemon-id-in-generation="386">Generation 3</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="387" last-pokemon-id-in-generation="494">Generation 4</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="495" last-pokemon-id-in-generation="649">Generation 5</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="650" last-pokemon-id-in-generation="721">Generation 6</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="722" last-pokemon-id-in-generation="809">Generation 7</li>
+                    <li class="dropdown-item" data-first-pokemon-id-in-generation="810" last-pokemon-id-in-generation="905">Generation 8</li>
                     <li class="dropdown-item" data-first-pokemon-id-in-generation="906">Generation 9</li>
                 </ul>
             </div>
             <ul class="card-list" role="list" data-first-generated-pokemon-id="1">
             </ul>
-            <div class="see-more-pokemon" aria-hidden="true">
+            <div class="no-more-pokemon" aria-hidden="true">
+                <p>There's no more pokemon to show</p>
             </div>
         </main>
     </div>
