@@ -11,11 +11,14 @@ import { togglePokemonHintList } from "../pokemonHintList/togglePokemonHintList.
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
-
+    
     let searchedPokemon = document.querySelector(".search-pokemon-input").value;
     searchedPokemon = searchedPokemon.trim();
-    const [ hasErrorOccured, errorMessage ] = validateSearchPokemon(searchedPokemon);
+
+    const searchPokemonForm = document.querySelector(".search-pokemon-form");
+    searchPokemonForm.reset();
     
+    const [ hasErrorOccured, errorMessage ] = validateSearchPokemon(searchedPokemon);
     const hidePokemonHintList = true;
     togglePokemonHintList(hidePokemonHintList);
     changeSearchStyle(hasErrorOccured);
