@@ -256,6 +256,7 @@ main {
     /* Only tp get more space from absolutely spaced dropdown*/
     position: relative;
     top: 8rem;
+    margin-bottom: 2rem;
 }
 
 .no-more-pokemon {

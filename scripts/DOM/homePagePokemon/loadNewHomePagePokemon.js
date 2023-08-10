@@ -8,17 +8,13 @@ export const loadNewPokemon = async (entries, loadNewPokemonObserver) => {
     const isLastPokemonCardIntersecting = lastPokemonCard.isIntersecting;
 
     if(isLastPokemonCardIntersecting) {
-        loadNewPokemonObserver.unobserve(lastPokemonCard.target);
         const lastPokemonCardId = getLastPokemonCardId();
         await displayHomePagePokemon(lastPokemonCardId);
+        loadNewPokemonObserver.unobserve(lastPokemonCard.target);
         
+
         const cardList = document.querySelector(".card-list");
         const newLastCard = cardList.lastChild;
         loadNewPokemonObserver.observe(newLastCard);
     }
-
-    // let pokemonCards = document.querySelectorAll(".card-container");
-    //     pokemonCards.forEach(pokemonCard =>
-    //         pokemonVisibilityObserver.observe(pokemonCard)
-    // );
 }

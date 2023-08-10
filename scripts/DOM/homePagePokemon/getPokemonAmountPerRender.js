@@ -1,20 +1,17 @@
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 
-export const getPokemonAmountPerRender = (lastPokemonCardId, lastPokemonIdInGeneration) => {
-    let pokemonPerRender = 9;
-    let numberOfPokemonForLastRender = LAST_BASE_FORM_POKEMON_ID % pokemonPerRender;
-    let lastPokemonIdWithFullRender = LAST_BASE_FORM_POKEMON_ID - numberOfPokemonForLastRender;
+export const getPokemonAmountPerRender = (firstPokemonToGenerateId,
+    lastPokemonIdInGeneration = LAST_BASE_FORM_POKEMON_ID) => {
+        let pokemonPerRender = 9;
+        const numberOfPokemonForLastRender = lastPokemonIdInGeneration % pokemonPerRender;
+        const lastPokemonIdWithFullRender = lastPokemonIdInGeneration - numberOfPokemonForLastRender;
+        const previousLastGeneratedPokemon = firstPokemonToGenerateId - 1;
 
-    if(lastPokemonIdInGeneration) {
-        // const lastPokemonIdInGeneration = document.querySelector("[data-current-generation]")
-        //     .getAttribute("data-last-pokemon-id-in-generation");
-        numberOfPokemonForLastRender = lastPokemonIdInGeneration % pokemonPerRender;
-        lastPokemonIdWithFullRender = lastPokemonIdInGeneration - numberOfPokemonForLastRender;
-    }
+        if(previousLastGeneratedPokemon === lastPokemonIdWithFullRender) {
+            pokemonPerRender = numberOfPokemonForLastRender;
+        }
 
-    if(lastPokemonCardId === lastPokemonIdWithFullRender) {
-        pokemonPerRender = numberOfPokemonForLastRender;
-    }
+        pokemonPerRender = pokemonPerRender + firstPokemonToGenerateId - 1;
 
-    return pokemonPerRender;
+        return pokemonPerRender;
 }

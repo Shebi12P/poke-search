@@ -22,7 +22,7 @@ export const displayHomePagePokemonByGeneration = async (event) => {
     pokemonCardList.setAttribute("data-first-generated-pokemon-id", firstPokemonIdInGeneration);
     clickedObject.setAttribute("current-generation", "");
     
-    const firstPokemonIdToGenerate = firstPokemonIdInGeneration - 1;
+    const firstPokemonIdToGenerate = firstPokemonIdInGeneration;
     await displayHomePagePokemon(firstPokemonIdToGenerate);
 
     const lastPokemonCard = pokemonCardList.lastChild;

@@ -10,26 +10,31 @@ import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCa
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
 
 
-export const displayHomePagePokemon = async (lastPokemonCardId = 0) => {
-    const lastPokemonIdInGeneration = 10;
-    if(lastPokemonCardId === LAST_BASE_FORM_POKEMON_ID ||
-        lastPokemonCardId === lastPokemonIdInGeneration - 1) {
-            const noMorePokemonElement = document.querySelector(".no-more-pokemon");
-            noMorePokemonElement.setAttribute("aria-hidden", "false");
-            return;
+export const displayHomePagePokemon = async (lastPokemonCardId = 1) => {
+    const lastPokemonIdInGeneration = 13;
+    
+    if(lastPokemonCardId === lastPokemonIdInGeneration) {
+        const noMorePokemonElement = document.querySelector(".no-more-pokemon");
+        noMorePokemonElement.setAttribute("aria-hidden", "false");
+        return;
     }
 
     toggleOverlay();
-    const cardList = document.querySelector(".card-list");
 
-    const pokemonPerRender = getPokemonAmountPerRender(lastPokemonCardId, lastPokemonIdInGeneration);
-    let pokemonLimit = parseInt(lastPokemonCardId + pokemonPerRender);
+    const cardList = document.querySelector(".card-list");
+    let firstPokemonToGenerateId = lastPokemonCardId;
+
+    if(lastPokemonCardId > 1) {
+        firstPokemonToGenerateId += 1;
+    }
+
+    const pokemonPerRender = getPokemonAmountPerRender(firstPokemonToGenerateId, lastPokemonIdInGeneration);
     const pokemonCards = [];
     
-    for(let i = lastPokemonCardId; i < pokemonLimit; i++) {
+    for(let i = firstPokemonToGenerateId; i <= pokemonPerRender; i++) {
         let card = "";
         let pokemon = {};
-        let pokemonId = i+1;
+        let pokemonId = i;
         let pokemonFromCache = false;
 
         if(isPokemonCashed(pokemonId)) {
