@@ -1,3 +1,4 @@
+import { checkForSpecialCharacters } from "../../formValidation/checkSpecialCharacters.js";
 import { findPokemonFromInput } from "./findPokemonFromInput.js";
 import { populatePokemonHintList } from "./populatePokemonHintList.js";
 
@@ -14,10 +15,12 @@ export const togglePokemonHintList = (hidePokemonHintList) => {
     }
 
     const searchedText = document.querySelector(".search-pokemon-input").value;
+    const whiteListPattern = /-/;
 
-    if(searchedText.length === 0) {
-        searchPokemonInputGroup.setAttribute("data-overflow", "false");
-        return;
+    if(searchedText.length === 0 ||
+        checkForSpecialCharacters(searchedText, whiteListPattern)) {
+            searchPokemonInputGroup.setAttribute("data-overflow", "false");
+            return;
     }
 
     const foundPokemon = findPokemonFromInput();
