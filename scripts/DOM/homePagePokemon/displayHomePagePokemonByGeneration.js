@@ -1,11 +1,12 @@
 import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.js";
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
+import { deletePokemonFromNotCurrentGeneration } from "./deletePokemonFromNotCurrentGeneration.js";
 
 export const displayHomePagePokemonByGeneration = async (event) => {
     const clickedObject = event.target;
+    const clickedObjectSibling = clickedObject.nextElementSibling;
     const wasDropdownItemClicked = clickedObject.classList.contains("dropdown-item");
-
     if(!wasDropdownItemClicked) return;
 
     const pokemonCardList = document.querySelector(".card-list");
@@ -15,27 +16,29 @@ export const displayHomePagePokemonByGeneration = async (event) => {
     const firstPokemonInGenerationId = parseInt(
         clickedObject.getAttribute("data-first-pokemon-id-in-generation")
     );
-    const clickedObjectSibling = clickedObject.nextElementSibling;
-    let lastPokemonInGenerationId = parseInt(clickedObjectSibling
+    let currentLastPokemonInGenerationId = parseInt(clickedObjectSibling
         .getAttribute("data-first-pokemon-id-in-generation")) - 1;
 
-    if(lastPokemonInGenerationId < 1) {
-        lastPokemonInGenerationId = LAST_BASE_FORM_POKEMON_ID;
+    if(currentLastPokemonInGenerationId < 1) {
+        currentLastPokemonInGenerationId = LAST_BASE_FORM_POKEMON_ID;
     }
 
     const cardList = document.querySelector(".card-list");
-    cardList.setAttribute("data-last-pokemon-id", lastPokemonInGenerationId);
+    const previousLastPokemonInGenerationId = cardList.getAttribute("data-last-pokemon-id");
+    cardList.setAttribute("data-last-pokemon-id", currentLastPokemonInGenerationId);
+
+    if(previousLastPokemonInGenerationId > currentLastPokemonInGenerationId) {
+        deletePokemonFromNotCurrentGeneration(currentLastPokemonInGenerationId)
+    }
 
     if(firstPokemonInGenerationId === firstGeneratedPokemonId) return;
 
     pokemonCardList.innerHTML = "";
     pokemonCardList.setAttribute("data-first-generated-pokemon-id", firstPokemonInGenerationId);
-    clickedObject.setAttribute("current-generation", "");
     
     const firstPokemonToGenerateId = firstPokemonInGenerationId;
-    await displayHomePagePokemon(firstPokemonToGenerateId, lastPokemonInGenerationId);
+    await displayHomePagePokemon(firstPokemonToGenerateId, currentLastPokemonInGenerationId);
 
     const lastPokemonCard = pokemonCardList.lastChild;
     loadNewPokemonObserver.observe(lastPokemonCard);
-    
 }

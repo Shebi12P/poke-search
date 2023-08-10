@@ -8,6 +8,7 @@ import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
 import { isPokemonIdFirstInGeneration } from "./isPokemonIdFirstInGeneration.js";
+import { toggleNoMorePokemonElement } from "../noMorePokemon/toggleNoMorePokemonElement.js";
 
 
 export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
@@ -16,8 +17,7 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
     lastPokemonInGenerationId = parseInt(lastPokemonInGenerationId);
 
     if(firstPokemonToGenerateId === lastPokemonInGenerationId) {
-        const noMorePokemonElement = document.querySelector(".no-more-pokemon");
-        noMorePokemonElement.setAttribute("aria-hidden", "false");
+        toggleNoMorePokemonElement();
         return;
     }
 
