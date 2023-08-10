@@ -12,18 +12,18 @@ export const displayHomePagePokemonByGeneration = async (event) => {
         pokemonCardList.getAttribute("data-first-generated-pokemon-id")
     );
 
-    const firstPokemonIdInGeneration = parseInt(
+    const firstPokemonInGenerationId = parseInt(
         clickedObject.getAttribute("data-first-pokemon-id-in-generation")
     );
 
-    if(firstPokemonIdInGeneration == firstGeneratedPokemonId) return;
+    if(firstPokemonInGenerationId === firstGeneratedPokemonId) return;
 
     pokemonCardList.innerHTML = "";
-    pokemonCardList.setAttribute("data-first-generated-pokemon-id", firstPokemonIdInGeneration);
+    pokemonCardList.setAttribute("data-first-generated-pokemon-id", firstPokemonInGenerationId);
     clickedObject.setAttribute("current-generation", "");
     
-    const firstPokemonIdToGenerate = firstPokemonIdInGeneration;
-    await displayHomePagePokemon(firstPokemonIdToGenerate);
+    const firstPokemonToGenerateId = firstPokemonInGenerationId;
+    await displayHomePagePokemon(firstPokemonToGenerateId);
 
     const lastPokemonCard = pokemonCardList.lastChild;
     loadNewPokemonObserver.observe(lastPokemonCard);

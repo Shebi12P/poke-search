@@ -13,7 +13,6 @@ export const togglePokemonHintList = (hidePokemonHintList) => {
         return;
     }
 
-
     const searchedText = document.querySelector(".search-pokemon-input").value;
 
     if(searchedText.length === 0) {
