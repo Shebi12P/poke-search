@@ -11,8 +11,6 @@ export const getPokemonAmountPerRender = (firstPokemonToGenerateId,
             pokemonPerRender = numberOfPokemonForLastRender;
         }
 
-        console.log(firstPokemonToGenerateId);
-
         pokemonPerRender = pokemonPerRender + firstPokemonToGenerateId - 1;
 
         return pokemonPerRender;

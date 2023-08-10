@@ -4,7 +4,6 @@ import { fetchPokemon } from "../../api/fetchPokemon.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
-import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
@@ -12,8 +11,10 @@ import { isPokemonIdFirstInGeneration } from "./isPokemonIdFirstInGeneration.js"
 
 
 export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
-    const lastPokemonInGenerationId = 12;
-    
+    const cardList = document.querySelector(".card-list");
+    let lastPokemonInGenerationId = cardList.getAttribute("data-last-pokemon-id");
+    lastPokemonInGenerationId = parseInt(lastPokemonInGenerationId);
+
     if(firstPokemonToGenerateId === lastPokemonInGenerationId) {
         const noMorePokemonElement = document.querySelector(".no-more-pokemon");
         noMorePokemonElement.setAttribute("aria-hidden", "false");
@@ -22,7 +23,6 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
 
     toggleOverlay();
 
-    const cardList = document.querySelector(".card-list");
 
     if(!isPokemonIdFirstInGeneration(firstPokemonToGenerateId)) {
         firstPokemonToGenerateId += 1;
