@@ -577,7 +577,7 @@ main {
     background-color: hsl(0, 0%, 0%, .5);
     position: absolute;
     inset: 0;
-    min-height: 100vh;
+    bottom: -1rem;
     transition: opacity 750ms ease-in-out;
 }
 
@@ -606,16 +606,22 @@ main {
 }
 
 .overlay[aria-hidden="false"] .pokeball-icon {
-    animation: spin 1.5s infinite;
+    animation: spin 1.75s infinite;
 }
 
 @keyframes spin {
     0% {
         transform: rotate(0);
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.1;
     }
 
     100% {
         transform: rotate(360deg);
+        scale: 1;
     }
 }
 

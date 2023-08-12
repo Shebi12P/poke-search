@@ -33,32 +33,24 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
     
     for(let i = firstPokemonToGenerateId; i <= pokemonPerRender; i++) {
         let card = "";
-        let pokemon = {};
         let pokemonId = i;
-        let pokemonFromCache = false;
+        let pokemon = getPokemonDataFromCache(pokemonId)
+            || await fetchPokemon(pokemonId);
 
-        if(isPokemonCashed(pokemonId)) {
-            pokemon = getPokemonDataFromCache(pokemonId);
-            pokemonFromCache = true;
-            card = createPokemonCard(pokemon, pokemonFromCache);
-            pokemonCards.push(card);
-
-            continue;
-        }
-        
-        pokemon = await fetchPokemon(pokemonId);
-        
-        if(!fetchErrorsOccured(pokemon)) {
-            cachePokemon(pokemon);
-            card = createPokemonCard(pokemon, pokemonFromCache);
-            pokemonCards.push(card);
+        if(fetchErrorsOccured(pokemon)) {
+            const error = pokemon;
+            card = createPokemonErrorCard(error);
+            pokemonCards.push(card); 
             
             continue;
         }
 
-        const error = pokemon;
-        card = createPokemonErrorCard(error);
-        pokemonCards.push(card);        
+        if(!isPokemonCashed(pokemonId)) {
+            cachePokemon(pokemon);
+        }
+
+        card = createPokemonCard(pokemon);
+        pokemonCards.push(card);
     }
 
     pokemonCards.forEach(pokemonCard => {

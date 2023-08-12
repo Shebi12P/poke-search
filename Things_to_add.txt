@@ -4,7 +4,6 @@
     check: pokemon-species endpoint
 )
 - Add showing pokemon moves (optional)
-- | Filter pokemon by generation (Add not showing another pokemon if the last pokemon in generation was shown)
 - Work with showing pokemon that have more than 1 form
 - | Sort the styles
 - Work with caching the pokemon sprites (look at the links to the sprites and not cache their url,

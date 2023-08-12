@@ -2,21 +2,13 @@ import { createPokemonCardHeader } from "./createPokemonCardHeader.js";
 import { createPokemonCardBody } from "./createPokemonCardBody.js";
 import { getPokemonTypes } from "../../utils/getPokemonTypes.js";
 
-export const createPokemonCard = (fetchedPokemonData, isPokemonFromCache) => {
-    let frontImageUrl = "";
-    let pokemonName = fetchedPokemonData.name;
-    let pokemonTypes = [];
-
-    if(isPokemonFromCache) {
-        frontImageUrl = fetchedPokemonData.sprites[0];
-        pokemonTypes = fetchedPokemonData.types;
-    }
-    else {
-        frontImageUrl = fetchedPokemonData.sprites.other["official-artwork"].front_default;
-        pokemonTypes = getPokemonTypes(fetchedPokemonData);
-    }
+export const createPokemonCard = (fetchedPokemonData) => {
+    const pokemonName = fetchedPokemonData.name;
+    const pokemonId = fetchedPokemonData.id;
+    let pokemonTypes = fetchedPokemonData.types 
+        || getPokemonTypes(fetchedPokemonData);
     
-    const pokemonCardHeader = createPokemonCardHeader(frontImageUrl, pokemonName);
+    const pokemonCardHeader = createPokemonCardHeader(pokemonName, pokemonId);
     const pokemonCardBody = createPokemonCardBody(pokemonName, pokemonTypes);
     
     const card = `<div class="card" data-pokemon-name="${fetchedPokemonData.name}" 

@@ -12,7 +12,6 @@ export const cachePokemon = (pokemonData) => {
         stats: getPokemonStats(pokemonData),
         weight: weight,
         height: height,
-        sprites: getPokemonSprites(pokemonData)
     };
 
     const stringifedPokemonData = JSON.stringify(dataToCache);
