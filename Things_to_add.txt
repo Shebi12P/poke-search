@@ -6,7 +6,6 @@
 - Add showing pokemon moves (optional)
 - Work with showing pokemon that have more than 1 form
 - | Sort the styles
-- Work with caching the pokemon sprites (look at the links to the sprites and not cache their url,
-    beacuse the url is the same but the only difference is the id of the pokemon in the url)
 - Work with the all pokemon names (order them correctly, work with allolan forms)
 - Add tabbing to pokemon hint list
+- Add button getting user to the top of the page
