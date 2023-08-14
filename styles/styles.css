@@ -211,12 +211,14 @@ main {
     padding-block: 1rem;
 }
 
-.search-pokemon-hint:hover {
+.search-pokemon-hint:hover,
+.search-pokemon-hint:focus {
     color: var(--primary-200);
     background-color: var(--neutral-400);
 }
 
-.search-pokemon-hint[data-not-found]:hover {
+.search-pokemon-hint[data-not-found]:hover,
+.search-pokemon-hint[data-not-found]:focus {
     color: inherit;
     background-color: inherit;
     cursor: default;
@@ -339,7 +341,8 @@ main {
     padding-block: calc(var(--dropdown-spacing) * 2);
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+.dropdown-item:focus {
     color: var(--primary-200);
     background-color: var(--neutral-400);
 }
@@ -452,7 +455,8 @@ main {
     top: 1rem;
 }
 
-.close-button:hover svg {
+.close-button:hover svg,
+.close-button:focus svg {
     color: var(--primary-200);
 }
 
@@ -653,7 +657,8 @@ main {
     transition: 250ms background-color ease-in-out;
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
     background-color: var(--primary-300);
 }
 
