@@ -1,5 +1,4 @@
 // localStorage.clear()
-// console.log(localStorage)
 import { displayHomePagePokemon } from "./DOM/homePagePokemon/displayHomePagePokemon.js";
 import { displayHomePagePokemonByGeneration } from "./DOM/homePagePokemon/displayHomePagePokemonByGeneration.js";
 import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokemon.js";
@@ -7,9 +6,10 @@ import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
 import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
 import { loadNewPokemonObserver } from "./observers/loadNewPokemonObserver.js";
-import { createDebounce } from "./utils/debounce.js";
+import { debounce } from "./utils/debounce.js";
 import { togglePokemonHintList } from "./DOM/pokemonHintList/togglePokemonHintList.js";
 import { searchPokemonFromHintList } from "./DOM/pokemonHintList/searchPokemonFromHintList.js";
+import { debounceToggleHintList } from "./DOM/pokemonHintList/debounceToggleHintList.js";
 
 await displayHomePagePokemon();
 
@@ -34,8 +34,7 @@ generationDropdownWrapper.addEventListener("click", displayHomePagePokemonByGene
 
 const searchPokemonInput = document.querySelector(".search-pokemon-input");
 searchPokemonInput.addEventListener("input", () => {
-        const delay = 1000;
-        createDebounce(togglePokemonHintList, delay);
+        debounceToggleHintList();
     }
 );
 

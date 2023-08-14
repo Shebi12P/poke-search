@@ -3,6 +3,5 @@ export const isPokemonCashed = (pokemonId) => {
         ? true
         : false;
 
-        console.log(isPokemonCashed)
     return isPokemonCashed;
 }

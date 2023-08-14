@@ -1,10 +1,11 @@
-export const createDebounce = (func, delay) => {
+export const debounce = (dallbackFunction, delay) => {
     let timerId;
     
-    const debounce = () => {
-        clearTimeout(timerId);
-        timerId = setTimeout(func, delay);
-    }
     
-    debounce();
+    return (...args) => {
+        clearTimeout(timerId);
+        timerId = setTimeout(() => {
+            dallbackFunction(...args);
+        }, delay);
+    }    
 }
