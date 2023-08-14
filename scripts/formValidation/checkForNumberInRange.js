@@ -5,5 +5,7 @@ export const checkForNumberInRange = (number, minRange, maxRange) => {
         isInRange = true;
     }
 
+    console.log(isInRange)
+
     return isInRange;
 }
