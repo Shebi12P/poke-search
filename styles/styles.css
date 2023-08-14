@@ -104,8 +104,109 @@ main {
 }
 
 /*------------------*/
-/*Main header       */
+/*Utility classes   */
 /*------------------*/
+.flex-row {
+    display: flex;
+}
+
+.gap {
+    --_gap: 1rem;
+    gap: var(--_gap);
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.container {
+    max-width: min(100% - 4rem, 60rem);
+    margin-inline: auto;
+    position: relative;
+}
+
+.screen-reader-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.smooth-height-change {
+    --_number-of-rows: 0;
+    --_smooth-height: 0fr;
+    grid-template-rows: repeat(var(--_number-of-rows), var(--_smooth-height));
+}
+
+.icon {
+    --_icon-width: 24px;
+    --_icon-height: var(--_icon-width);
+    max-width: var(--_icon-width);
+    max-height: var(--_icon-height);
+}
+
+.button {
+    color: var(--neutral-100);
+    background-color: var(--primary-200);
+    font-weight: 700;
+    padding: .25rem .75rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 1rem;
+    transition: 250ms background-color ease-in-out;
+}
+
+.button:hover,
+.button:focus {
+    background-color: var(--primary-300);
+}
+
+.dropdown {
+    --_number-of-rows: 10;
+    list-style-type: none;
+    overflow: hidden;
+    max-height: 15rem;
+    overflow-y: scroll;
+    display: grid;
+    transition: grid-template-rows var(--_dropdown-animation-time);
+}
+
+.dropdown.smooth-height-change[aria-expanded="true"] {
+    --_smooth-height: 1fr;
+}
+
+.dropdown-item {
+    overflow: hidden;
+    padding-inline: var(--_dropdown-spacing);
+    transition: padding-block var(--_dropdown-animation-time);
+    display: flex;
+    align-items: center;
+}
+
+.dropdown[aria-expanded="true"] .dropdown-item {
+    padding-block: calc(var(--_dropdown-spacing) * 2);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: var(--primary-200);
+    background-color: var(--neutral-400);
+}
+
+.dropdown-icon {
+    transition: transform var(--_dropdown-animation-time);
+}
+
+.dropdown-icon[data-rotated="true"] {
+    transform: rotate(180deg);
+}
+
+
+/*-----------------------*/
+/*Element specific styles*/
+/*-----------------------*/
 .main-header {
     display: flex;
     align-items: center;
@@ -123,9 +224,9 @@ main {
 }
 
 .input-group {
-    --input-border-radius: 2rem;
+    --_input-border-radius: 2rem;
     background-color: var(--neutral-200);
-    border-radius: var(--input-border-radius);
+    border-radius: var(--_input-border-radius);
     margin-bottom: 1rem;
     position: relative;
     z-index: 10;
@@ -159,7 +260,7 @@ main {
     color: var(--neutral-500);
     font-size: 1rem;
     padding: .25rem 1rem;
-    border-radius: var(--input-border-radius);
+    border-radius: var(--_input-border-radius);
     border-bottom-left-radius: 0rem;
     border-top-left-radius: 0rem;
     border: none;
@@ -187,22 +288,14 @@ main {
     color: var(--neutral-600);
     background-color: var(--neutral-200);
     width: 100%;
-    border-bottom-left-radius: var(--input-border-radius);
-    border-bottom-right-radius: var(--input-border-radius);
+    border-bottom-left-radius: var(--_input-border-radius);
+    border-bottom-right-radius: var(--_input-border-radius);
     font-size: 1rem;
     
     max-height: 50rem;
     overflow-y: scroll;
     display: grid;
     transition: grid-template-rows 5s;
-}
-
-.search-pokemon-hint-list[aria-expanded="false"] {
-    grid-template-rows: repeat(1, 0fr);
-}
-
-.search-pokemon-hint-list[aria-expanded="true"] {
-    grid-template-rows: repeat(1, 1fr);
 }
 
 .search-pokemon-hint {
@@ -245,11 +338,6 @@ main {
     color: var(--neutral-500);
 }
 
-.icon {
-    max-width: 24px;
-    max-height: 24px;
-}
-
 .card-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(275px, .6fr));
@@ -289,21 +377,12 @@ main {
     width: max-content;
 }
 
-/*--------------------*/
-/*Utility classes     */
-/*--------------------*/
-.container {
-    max-width: min(100% - 4rem, 60rem);
-    margin-inline: auto;
-    position: relative;
-}
-
 .dropdown-wrapper {
-    --dropdown-spacing: 1rem;
-    --dropdown-animation-time: 500ms;
+    --_dropdown-spacing: 1rem;
+    --_dropdown-animation-time: 500ms;
     background-color: var(--neutral-200);
     color: var(--neutral-600);
-    padding-top: var(--dropdown-spacing);
+    padding-top: var(--_dropdown-spacing);
     border-radius: 1rem;
     min-width: 35ch;
     position: absolute;
@@ -312,67 +391,16 @@ main {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: var(--dropdown-spacing);
+    gap: var(--_dropdown-spacing);
     overflow: hidden;
-}
-
-.dropdown {
-    list-style-type: none;
-    overflow: hidden;
-    max-height: 15rem;
-    overflow-y: scroll;
-    display: grid;
-    transition: grid-template-rows var(--dropdown-animation-time);
-}
-
-.dropdown[aria-expanded="false"] {
-    grid-template-rows: repeat(10, 0fr);
-}
-
-.dropdown[aria-expanded="true"] {
-    grid-template-rows: repeat(10, 1fr);
-}
-
-.dropdown-item {
-    overflow: hidden;
-    padding-inline: var(--dropdown-spacing);
-    transition: padding-block var(--dropdown-animation-time);
-    display: flex;
-    align-items: center;
-}
-
-.dropdown[aria-expanded="true"] .dropdown-item {
-    padding-block: calc(var(--dropdown-spacing) * 2);
-}
-
-.dropdown-item:hover,
-.dropdown-item:focus {
-    color: var(--primary-200);
-    background-color: var(--neutral-400);
-}
-
-.dropdown-icon {
-    transition: transform var(--dropdown-animation-time);
-}
-
-.dropdown-icon[data-rotated="true"] {
-    transform: rotate(180deg);
 }
 
 /*Card */
 .card {
-    --card-spacing: 2rem;
+    --_card-spacing: 2rem;
     background-color: var(--primary-400);
     border-radius: 2rem;
 }
-
-/* .card-container[aria-hidden="true"] {
-    opacity: 0;
-}
-
-.card-container[aria-hidden="false"] {
-    opacity: 1;
-} */
 
 .card-header {
     --max-img-size: 13rem;
@@ -387,7 +415,7 @@ main {
 }
 
 .card-body {
-    padding-inline: var(--card-spacing);
+    padding-inline: var(--_card-spacing);
 }
 
 .card-body h2 {
@@ -395,19 +423,19 @@ main {
 }
 
 .card-body .type-badges {
-    margin-bottom: var(--card-spacing);
+    margin-bottom: var(--_card-spacing);
     display: flex;
     gap: .5rem;
 }
 
 .card-body button {
-    margin-bottom: var(--card-spacing);
+    margin-bottom: var(--_card-spacing);
     width: max-content;
 }
 
 /*Info card*/
 .info-card {
-    --info-card-animation-duration: 250ms;
+    --_info-card-animation-duration: 250ms;
     position: fixed;
     top: min(5%, 1% + 1vw);
     left: 25%;
@@ -416,7 +444,7 @@ main {
     isolation: isolate;
     overflow-y: auto;
     max-height: 35rem;
-    transition: transform var(--info-card-animation-duration) ease-in-out;
+    transition: transform var(--_info-card-animation-duration) ease-in-out;
 }
 
 .info-card[aria-hidden="true"] {
@@ -433,7 +461,7 @@ main {
     min-width: 100%;
     gap: 2rem;
     padding-top: 3rem;
-    padding-inline: var(--card-spacing);
+    padding-inline: var(--_card-spacing);
 }
 
 .info-card-heading {
@@ -476,7 +504,7 @@ main {
 }
 
 .error-card-header {
-    margin-inline: var(--card-spacing);
+    margin-inline: var(--_card-spacing);
 }
 
 .error-card[aria-hidden="true"] {
@@ -491,7 +519,7 @@ main {
     width: 100%;
 }
 .error-card-body {
-    margin-bottom: var(--card-spacing);
+    margin-bottom: var(--_card-spacing);
 }
 
 
@@ -508,7 +536,6 @@ main {
 .weight-value {
     font-weight: 700;
 }
-
 
 /*Stats */
 .stats {
@@ -565,131 +592,6 @@ main {
     font-weight: 700;
 }
 
-.flex-row {
-    display: flex;
-}
-
-.gap {
-    --gap: 1rem;
-    gap: var(--gap);
-}
-
-.space-around {
-    justify-content: space-around;
-}
-
-
-/*Overlay*/
-
-.overlay {
-    background-color: hsl(0, 0%, 0%, .5);
-    position: absolute;
-    inset: 0;
-    bottom: -1rem;
-    transition: opacity 750ms ease-in-out;
-}
-
-.overlay[aria-hidden="true"] {
-    opacity: 0;
-    z-index: -1;
-    isolation: isolate;
-}
-
-.overlay[aria-hidden="false"] {
-    opacity: 1;
-    transform-origin: center;
-    z-index: 20;
-    isolation: isolate;
-}
-
-.pokeball-icon {
-    max-width: 20rem;
-    max-height: 20rem;
-    opacity: 1;
-    isolation: isolate;
-    position: fixed;
-    top: 40%;
-    right: 40%;
-    left: 40%;
-}
-
-.overlay[aria-hidden="false"] .pokeball-icon {
-    animation: spin 1.75s infinite;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0);
-        scale: 1;
-    }
-
-    50% {
-        scale: 1.1;
-    }
-
-    100% {
-        transform: rotate(360deg);
-        scale: 1;
-    }
-}
-
-.pokeball-icon-outline {
-    fill:hsl(0, 0%, 22%);
-}
-
-.pokeball-icon-button {
-    fill:var(--neutral-100);
-}
-
-.pokeball-icon-bottom {
-    fill:hsl(0, 20%, 99%);
-}
-
-.pokeball-icon-top {
-    fill: hsl(0, 84%, 59%);
-}
-
-/*Button*/
-.button {
-    color: var(--neutral-100);
-    background-color: var(--primary-200);
-    font-weight: 700;
-    padding: .25rem .75rem;
-    border: none;
-    cursor: pointer;
-    border-radius: 1rem;
-    transition: 250ms background-color ease-in-out;
-}
-
-.button:hover,
-.button:focus {
-    background-color: var(--primary-300);
-}
-
-.take-to-top {
-    background-color: var(--primary-200);
-    position: fixed;
-    bottom: 10%;
-    left: 90%;
-    padding: 1rem;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-items: center;
-    transform: rotate(180deg);
-}
-
-.screen-reader-only {
-    position:absolute;
-    left:-10000px;
-    top:auto;
-    width:1px;
-    height:1px;
-    overflow:hidden;
-}
-
-/*Type badges*/
 .type-badge {
     font-size: .875rem;
     padding: .25rem .75rem;
@@ -768,6 +670,91 @@ main {
 .type-badge[data-type="fairy"] {
     background-color: var(--fairy);
 }
+
+/*Overlay*/
+.overlay {
+    background-color: hsl(0, 0%, 0%, .5);
+    position: absolute;
+    inset: 0;
+    bottom: -1rem;
+    transition: opacity 750ms ease-in-out;
+}
+
+.overlay[aria-hidden="true"] {
+    opacity: 0;
+    z-index: -1;
+    isolation: isolate;
+}
+
+.overlay[aria-hidden="false"] {
+    opacity: 1;
+    transform-origin: center;
+    z-index: 20;
+    isolation: isolate;
+}
+
+.pokeball-icon {
+    max-width: 20rem;
+    max-height: 20rem;
+    opacity: 1;
+    isolation: isolate;
+    position: fixed;
+    top: 40%;
+    right: 40%;
+    left: 40%;
+}
+
+.overlay[aria-hidden="false"] .pokeball-icon {
+    animation: spin 1.75s infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+        scale: 1;
+    }
+
+    50% {
+        scale: 1.1;
+    }
+
+    100% {
+        transform: rotate(360deg);
+        scale: 1;
+    }
+}
+
+.pokeball-icon-outline {
+    fill:hsl(0, 0%, 22%);
+}
+
+.pokeball-icon-button {
+    fill:var(--neutral-100);
+}
+
+.pokeball-icon-bottom {
+    fill:hsl(0, 20%, 99%);
+}
+
+.pokeball-icon-top {
+    fill: hsl(0, 84%, 59%);
+}
+
+.take-to-top {
+    background-color: var(--primary-200);
+    position: fixed;
+    bottom: 10%;
+    left: 90%;
+    padding: 1rem;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    transform: rotate(180deg);
+}
+
+/*Type badges*/
 
 @media (max-width: 45em) {
     .main-header {
