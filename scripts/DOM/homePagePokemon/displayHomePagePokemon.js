@@ -23,7 +23,6 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
 
     toggleOverlay();
 
-
     if(!isPokemonIdFirstInGeneration(firstPokemonToGenerateId)) {
         firstPokemonToGenerateId += 1;
     }

@@ -32,7 +32,7 @@ export const displaySearchedPokemon = async (event) => {
         return;
     }
 
-    searchedPokemon = searchedPokemon.toLowerCase();  
+    searchedPokemon = searchedPokemon.toLowerCase();
     const fetchedPokemon = await fetchPokemon(searchedPokemon);
         
     if(fetchErrorsOccured(fetchedPokemon)) return;

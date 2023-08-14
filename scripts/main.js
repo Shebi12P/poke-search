@@ -1,4 +1,5 @@
 // localStorage.clear()
+// console.log(localStorage)
 import { displayHomePagePokemon } from "./DOM/homePagePokemon/displayHomePagePokemon.js";
 import { displayHomePagePokemonByGeneration } from "./DOM/homePagePokemon/displayHomePagePokemonByGeneration.js";
 import { displaySearchedPokemon } from "./DOM/searchPokemon/displaySearchedPokemon.js";
