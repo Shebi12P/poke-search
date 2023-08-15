@@ -1,5 +1,3 @@
-import { toggleNoMorePokemonElement } from "../noMorePokemon/toggleNoMorePokemonElement.js";
-
 export const deletePokemonFromNotCurrentGeneration = (currentLastPokemonInGenerationId) => {
         const cardList = document.querySelector(".card-list");
         const indexOfLastChildToDelete = currentLastPokemonInGenerationId ;
@@ -9,6 +7,4 @@ export const deletePokemonFromNotCurrentGeneration = (currentLastPokemonInGenera
             let currentChildToDelete = cardList.children[i];
             cardList.removeChild(currentChildToDelete);
         }
-
-        toggleNoMorePokemonElement();
 }

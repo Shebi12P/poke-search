@@ -2,6 +2,7 @@ import { displayHomePagePokemon } from "./displayHomePagePokemon.js";
 import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.js";
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 import { deletePokemonFromNotCurrentGeneration } from "./deletePokemonFromNotCurrentGeneration.js";
+import { toggleNoMorePokemonElement } from "../noMorePokemon/toggleNoMorePokemonElement.js";
 
 export const displayHomePagePokemonByGeneration = async (event) => {
     const clickedObject = event.target;
@@ -30,9 +31,11 @@ export const displayHomePagePokemonByGeneration = async (event) => {
     cardList.setAttribute("data-last-pokemon-id", currentLastPokemonInGenerationId);
     
     if(previousLastPokemonInGenerationId > currentLastPokemonInGenerationId) {
-        deletePokemonFromNotCurrentGeneration(currentLastPokemonInGenerationId)
+        deletePokemonFromNotCurrentGeneration(currentLastPokemonInGenerationId);
+        toggleNoMorePokemonElement();
     }
-    
+
+
     if(firstPokemonInGenerationId === firstGeneratedPokemonId) return;
 
     pokemonCardList.innerHTML = "";

@@ -3,7 +3,7 @@ import { cachePokemon } from "../../cache/cachePokemon.js";
 import { fetchPokemon } from "../../api/fetchPokemon.js";
 import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
-import { getPokemonAmountPerRender } from "./getPokemonAmountPerRender.js";
+import { getLastPokemonToGenerateId } from "./getLastPokemonToGenerateId.js";
 import { fetchErrorsOccured } from "../../utils/fetchErrorsOccured.js";
 import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCard.js";
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
@@ -28,10 +28,10 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
         firstPokemonToGenerateId += 1;
     }
 
-    const pokemonPerRender = getPokemonAmountPerRender(firstPokemonToGenerateId, lastPokemonInGenerationId);
+    const lastPokemonToGenerateId = getLastPokemonToGenerateId(firstPokemonToGenerateId, lastPokemonInGenerationId);
     const pokemonCards = [];
     
-    for(let i = firstPokemonToGenerateId; i <= pokemonPerRender; i++) {
+    for(let i = firstPokemonToGenerateId; i <= lastPokemonToGenerateId; i++) {
         let card = "";
         let pokemonId = i;
         
