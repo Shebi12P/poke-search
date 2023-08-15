@@ -9,6 +9,7 @@ import { createPokemonErrorCard } from "../pokemonErrorCard/createPokemonErrorCa
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
 import { isPokemonIdFirstInGeneration } from "./isPokemonIdFirstInGeneration.js";
 import { toggleNoMorePokemonElement } from "../noMorePokemon/toggleNoMorePokemonElement.js";
+import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 
 
 export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
@@ -16,7 +17,7 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
     let lastPokemonInGenerationId = cardList.getAttribute("data-last-pokemon-id");
     lastPokemonInGenerationId = parseInt(lastPokemonInGenerationId);
 
-    if(firstPokemonToGenerateId === lastPokemonInGenerationId) {
+    if(firstPokemonToGenerateId >= lastPokemonInGenerationId) {
         toggleNoMorePokemonElement();
         return;
     }
@@ -33,6 +34,12 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
     for(let i = firstPokemonToGenerateId; i <= pokemonPerRender; i++) {
         let card = "";
         let pokemonId = i;
+        
+        if(pokemonId > LAST_BASE_FORM_POKEMON_ID)  {
+            toggleOverlay();
+            return;
+        }
+        
         let pokemon = getPokemonDataFromCache(pokemonId)
             || await fetchPokemon(pokemonId);
 

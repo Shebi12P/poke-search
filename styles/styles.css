@@ -95,6 +95,12 @@ img {
     max-width: 100%;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
 /*------------------*/
 /*Utility classes   */
 /*------------------*/

@@ -1274,12 +1274,12 @@ export const allPokemonNames =
 'tatsugiri-stretchy',
 'dudunsparce-three-segment',
 'gimmighoul-roaming',
-'koraidon-limited-build',
-'koraidon-sprinting-build',
-'koraidon-swimming-build',
-'koraidon-gliding-build',
-'miraidon-low-power-mode',
-'miraidon-drive-mode',
-'miraidon-aquatic-mode',
-'miraidon-glide-mode'
+// 'koraidon-limited-build',
+// 'koraidon-sprinting-build',
+// 'koraidon-swimming-build',
+// 'koraidon-gliding-build',
+// 'miraidon-low-power-mode',
+// 'miraidon-drive-mode',
+// 'miraidon-aquatic-mode',
+// 'miraidon-glide-mode'
 ]

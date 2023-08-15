@@ -28,12 +28,12 @@ export const displayHomePagePokemonByGeneration = async (event) => {
     const cardList = document.querySelector(".card-list");
     const previousLastPokemonInGenerationId = cardList.getAttribute("data-last-pokemon-id");
     cardList.setAttribute("data-last-pokemon-id", currentLastPokemonInGenerationId);
-
-    if(firstPokemonInGenerationId === firstGeneratedPokemonId) return;
-
+    
     if(previousLastPokemonInGenerationId > currentLastPokemonInGenerationId) {
         deletePokemonFromNotCurrentGeneration(currentLastPokemonInGenerationId)
     }
+    
+    if(firstPokemonInGenerationId === firstGeneratedPokemonId) return;
 
     pokemonCardList.innerHTML = "";
     pokemonCardList.setAttribute("data-first-generated-pokemon-id", firstPokemonInGenerationId);
