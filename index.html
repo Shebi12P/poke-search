@@ -135,22 +135,15 @@
                 <p class="search-pokemon-message" aria-hidden="true"></p>
             </form>
         </header>
-        <main>
-            <a class="button take-to-top" href="#top" tabindex="1" role="button">
-                <span class="screen-reader-only">Take to the top of the page</span>
-                <!-- <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg> -->
-                <img src="./assets/icons/down-arrow.svg" alt="arrow pointing up">
-            </a>
-            <div class="dropdown-wrapper" tabindex="0">
+        <main class="gap">
+            <div class="dropdown-wrapper generation-dropdown-wrapper" tabindex="0">
                 <div class="flex-row gap space-around">
                     <p>Filter pokemon by generation</p>
                     <svg class="icon dropdown-icon" data-rotated="false" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>
                 </div>
-                <ul class="dropdown smooth-height-change" role="list" aria-expanded="false">
+                <ul class="dropdown smooth-height-change generation-dropdown" role="list" aria-expanded="false">
                     <li class="dropdown-item" data-all-pokemon data-first-pokemon-id-in-generation="1">All pokemon</li>
                     <li class="dropdown-item" data-first-pokemon-id-in-generation="1">Generation 1</li>
                     <li class="dropdown-item" data-first-pokemon-id-in-generation="152">Generation 2</li>
@@ -163,6 +156,10 @@
                     <li class="dropdown-item" data-first-pokemon-id-in-generation="906">Generation 9</li>
                 </ul>
             </div>
+            <a class="button take-to-top" href="#top" tabindex="0" role="button">
+                <span class="screen-reader-only">Take to the top of the page</span>
+                <img src="./assets/icons/down-arrow.svg" alt="arrow pointing up">
+            </a>
             <ul class="card-list" role="list" data-first-generated-pokemon-id="1" data-last-pokemon-id="1010">
             </ul>
             <div class="no-more-pokemon" aria-hidden="true">

@@ -6,8 +6,6 @@ import { toggleErrorCard } from "./DOM/errorCard/toggleErrorCard.js";
 import { toggleInfoCard } from "./DOM/infoCard/toggleInfoCard.js";
 import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
 import { loadNewPokemonObserver } from "./observers/loadNewPokemonObserver.js";
-import { debounce } from "./utils/debounce.js";
-import { togglePokemonHintList } from "./DOM/pokemonHintList/togglePokemonHintList.js";
 import { searchPokemonFromHintList } from "./DOM/pokemonHintList/searchPokemonFromHintList.js";
 import { debounceToggleHintList } from "./DOM/pokemonHintList/debounceToggleHintList.js";
 
