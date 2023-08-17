@@ -52,10 +52,10 @@ export const toggleInfoCard = (event, pokemonData) => {
     if(wasSearchPokemonHintClicked) {
         toggleOverlay();
         
-        // if(wasPokemonSearchedPreviousTime(pokemonData)) {
-        //     changeInfoCardVisibility(hideCard, showOverlay);
-        //     return;
-        // }
+        if(wasPokemonSearchedPreviousTime(pokemonData)) {
+            changeInfoCardVisibility(hideCard, showOverlay);
+            return;
+        }
 
         populateInfoCard(pokemonData);
         changeInfoCardVisibility(hideCard, showOverlay);
