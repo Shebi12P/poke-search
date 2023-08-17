@@ -1,8 +1,10 @@
-import { createPokemonCardImage } from "./createPokemonCardImage.js";
+import { getPokemonImageAttributes } from "../../utils/getPokemonImageAttributes.js";
+import { createLazyLoadImage } from "../lazyLoadImage/createLazyLoadImage.js";
 
 export const createPokemonCardHeader = (pokemonName, pokemonId) => {
-    const cardImage = createPokemonCardImage(pokemonName, pokemonId);
-    const cardHeader = `<div class ="card-header">${cardImage}</div>`;
+    const pokemonImageAttributes = getPokemonImageAttributes(pokemonName, pokemonId); 
+    const lazyLoadImage = createLazyLoadImage(pokemonImageAttributes);
+    const cardHeader = `<div class ="card-header">${lazyLoadImage}</div>`;
 
     return cardHeader;
 }

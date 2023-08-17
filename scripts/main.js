@@ -8,6 +8,8 @@ import { toggleDropdown } from "./DOM/dropdown/toggleDropdown.js";
 import { loadNewPokemonObserver } from "./observers/loadNewPokemonObserver.js";
 import { searchPokemonFromHintList } from "./DOM/pokemonHintList/searchPokemonFromHintList.js";
 import { debounceToggleHintList } from "./DOM/pokemonHintList/debounceToggleHintList.js";
+import { lazyLoadObserver } from "./observers/lazyLoadObserver.js";
+
 
 await displayHomePagePokemon();
 
@@ -15,6 +17,11 @@ const cardList = document.querySelector(".card-list");
 const lastPokemonCardContainer = cardList.lastChild;
 const lastPokemonCard = lastPokemonCardContainer.firstChild;
 loadNewPokemonObserver.observe(lastPokemonCard);
+
+const lazyLoadImages = document.querySelectorAll(".lazy-load-image")
+lazyLoadImages.forEach(
+    lazyLoadImages => lazyLoadObserver.observe(lazyLoadImages)
+);
 
 const infoCard = document.querySelector(".info-card");
 infoCard.addEventListener("click", toggleInfoCard);

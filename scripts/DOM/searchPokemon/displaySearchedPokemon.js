@@ -6,12 +6,14 @@ import { isPokemonCashed } from "../../cache/isPokemonCached.js";
 import { validateSearchPokemon } from "./validation/validateSearchPokemon.js";
 import { togglePokemonHintList } from "../pokemonHintList/togglePokemonHintList.js";
 import { handleInputError } from "./handleInputError.js";
+import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
 export const displaySearchedPokemon = async (event) => {
     event.preventDefault();
-    
+
     let searchedPokemon = document.querySelector(".search-pokemon-input").value;
     searchedPokemon = searchedPokemon.trim();
+    searchedPokemon = searchedPokemon.toLowerCase();
 
     const searchPokemonForm = document.querySelector(".search-pokemon-form");
     searchPokemonForm.reset();
@@ -24,20 +26,14 @@ export const displaySearchedPokemon = async (event) => {
 
     if(hasErrorOccured) return;
 
-    let pokemonId;
+    const pokemon = getPokemonDataFromCache(searchedPokemon) || await fetchPokemon(searchedPokemon);
+
+    if(fetchErrorsOccured(pokemon)) return;
     
-    if(isPokemonCashed(searchedPokemon)) {
-        pokemonId = searchedPokemon;
-        toggleInfoCard(event, pokemonId);
-        return;
+    if(!isPokemonCashed(searchedPokemon)) {
+        let pokemonId = pokemon.id;
+        cachePokemon(pokemonId);
     }
 
-    searchedPokemon = searchedPokemon.toLowerCase();
-    const fetchedPokemon = await fetchPokemon(searchedPokemon);
-        
-    if(fetchErrorsOccured(fetchedPokemon)) return;
-    
-    pokemonId = fetchedPokemon.id;
-    cachePokemon(fetchedPokemon);
-    toggleInfoCard(event, pokemonId);
+    toggleInfoCard(event, pokemon);
 }

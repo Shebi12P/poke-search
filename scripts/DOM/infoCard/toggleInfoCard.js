@@ -2,8 +2,9 @@ import { populateInfoCard } from "./populateInfoCard.js";
 import { wasPokemonSearchedPreviousTime } from "../searchPokemon/wasPokemonSearchedPreviousTime.js";
 import { toggleOverlay } from "../overlay/toggleOverlay.js";
 import { changeInfoCardVisibility } from "./changeInfoCardVisibility.js";
+import { getPokemonDataFromCache } from "../../cache/getPokemonDataFromCache.js";
 
-export const toggleInfoCard = (event, pokemonId) => {
+export const toggleInfoCard = (event, pokemonData) => {
     const clickedObject = event.target;
     const wasShowMoreInfoButtonClicked = clickedObject.classList.contains("show-more-info");
     const wasCloseButtonClicked = clickedObject.classList.contains("close-button")
@@ -15,14 +16,15 @@ export const toggleInfoCard = (event, pokemonId) => {
     
     if(wasShowMoreInfoButtonClicked) {
         toggleOverlay();
-        pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
+        let pokemonId = clickedObject.closest(".card").getAttribute("data-pokemon-id");
 
         if(wasPokemonSearchedPreviousTime(pokemonId)) {
             changeInfoCardVisibility(hideCard, showOverlay);
             return;
         }
     
-        populateInfoCard(pokemonId);
+        pokemonData = getPokemonDataFromCache(pokemonId);
+        populateInfoCard(pokemonData);
         changeInfoCardVisibility(hideCard, showOverlay);
         return;
     }
@@ -37,12 +39,12 @@ export const toggleInfoCard = (event, pokemonId) => {
     if(event.type === "submit") {
         toggleOverlay();
         
-        if(wasPokemonSearchedPreviousTime(pokemonId)) {
+        if(wasPokemonSearchedPreviousTime(pokemonData)) {
             changeInfoCardVisibility(hideCard, showOverlay);
             return;
         }
         
-        populateInfoCard(pokemonId);
+        populateInfoCard(pokemonData);
         changeInfoCardVisibility(hideCard, showOverlay);
         return;
     }
@@ -50,12 +52,12 @@ export const toggleInfoCard = (event, pokemonId) => {
     if(wasSearchPokemonHintClicked) {
         toggleOverlay();
         
-        if(wasPokemonSearchedPreviousTime(pokemonId)) {
-            changeInfoCardVisibility(hideCard, showOverlay);
-            return;
-        }
+        // if(wasPokemonSearchedPreviousTime(pokemonData)) {
+        //     changeInfoCardVisibility(hideCard, showOverlay);
+        //     return;
+        // }
 
-        populateInfoCard(pokemonId);
+        populateInfoCard(pokemonData);
         changeInfoCardVisibility(hideCard, showOverlay);
     }
 }

@@ -722,6 +722,25 @@ main {
     }
 }
 
+.lazy-load-image {
+    min-height: 13.5rem;
+}
+
+.lazy-load-image[data-loading] {
+    animation: load 2s infinite alternate;
+}
+
+@keyframes load {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        background-color: var(--neutral-100);
+        opacity: .2;
+    }
+}
+
 .pokeball-icon-outline {
     fill:hsl(0, 0%, 22%);
 }
