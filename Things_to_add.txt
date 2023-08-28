@@ -1,7 +1,0 @@
-- Add pokemon description
-- Add showing pokemon other forms in info card (use pokemon-species/pokemonName or pokemonId with fetching
-    check: pokemon-species endpoint
-)
-- Add showing pokemon moves (optional)
-- Work with showing pokemon that have more than 1 form
-- Work with the all pokemon names (order them correctly, work with allolan forms)
