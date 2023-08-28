@@ -723,7 +723,8 @@ main {
 }
 
 .lazy-load-image {
-    min-height: 13.5rem;
+    min-height: var(--_max-img-size, 13.5rem);
+    width: 100%;
 }
 
 .lazy-load-image[data-loading] {

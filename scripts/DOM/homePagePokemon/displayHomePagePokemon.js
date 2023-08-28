@@ -18,6 +18,8 @@ export const displayHomePagePokemon = async (firstPokemonToGenerateId = 1) => {
     lastPokemonInGenerationId = parseInt(lastPokemonInGenerationId);
 
     if(firstPokemonToGenerateId >= lastPokemonInGenerationId) {
+        console.log(firstPokemonToGenerateId);
+        console.log(lastPokemonInGenerationId)
         toggleNoMorePokemonElement();
         return;
     }

@@ -3,6 +3,7 @@ import { loadNewPokemonObserver } from "../../observers/loadNewPokemonObserver.j
 import { LAST_BASE_FORM_POKEMON_ID } from "../../variables/lastBaseFormPokemonId.js";
 import { deletePokemonFromNotCurrentGeneration } from "./deletePokemonFromNotCurrentGeneration.js";
 import { toggleNoMorePokemonElement } from "../noMorePokemon/toggleNoMorePokemonElement.js";
+import { observeNewPokemon } from "./observeNewPokemon.js";
 
 export const displayHomePagePokemonByGeneration = async (event) => {
     const clickedObject = event.target;
@@ -43,6 +44,7 @@ export const displayHomePagePokemonByGeneration = async (event) => {
     
     const firstPokemonToGenerateId = firstPokemonInGenerationId;
     await displayHomePagePokemon(firstPokemonToGenerateId, currentLastPokemonInGenerationId);
+    observeNewPokemon();
 
     const lastPokemonCard = pokemonCardList.lastChild;
     loadNewPokemonObserver.observe(lastPokemonCard);

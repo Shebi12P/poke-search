@@ -18,7 +18,7 @@ const lastPokemonCardContainer = cardList.lastChild;
 const lastPokemonCard = lastPokemonCardContainer.firstChild;
 loadNewPokemonObserver.observe(lastPokemonCard);
 
-const lazyLoadImages = document.querySelectorAll(".lazy-load-image")
+const lazyLoadImages = document.querySelectorAll(".lazy-load-image");
 lazyLoadImages.forEach(
     lazyLoadImages => lazyLoadObserver.observe(lazyLoadImages)
 );
